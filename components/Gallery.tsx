@@ -12,7 +12,8 @@ const galleryImages = [
     "/2.jpeg",
     "/3.jpeg",
     "/6.jpeg",
-    "/7.jpeg"
+    "/7.jpeg",
+    "/leetcode 300 days badge.jpg"
 ];
 
 export default function Gallery() {
