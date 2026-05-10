@@ -23,7 +23,7 @@ const experienceData = [
         role: "Campus Crew Ambassador",
         company: "HackerRank",
         period: "Jan 2026 – Present",
-        location: "GCEErode",
+        location: "GCE Erode",
         description: [
             "Conducted coding events, promoted competitive programming, and mentored students as a selected campus representative."
         ],
@@ -47,7 +47,7 @@ export default function Experience() {
 
     return (
         <section id="Experience" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-24 flex flex-col justify-center">
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -63,11 +63,11 @@ export default function Experience() {
                 <div className="absolute left-[18px] md:left-[31px] top-0 bottom-0 w-1 bg-white/5 rounded-full" />
 
                 {/* Animated fill line */}
-                <motion.div 
+                <motion.div
                     className="absolute left-[18px] md:left-[31px] top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 rounded-full origin-top z-0"
                     style={{ scaleY }}
                 />
-                
+
                 <div className="space-y-12">
                     {experienceData.map((exp, idx) => (
                         <motion.div
@@ -120,7 +120,7 @@ export default function Experience() {
                                     <div className="mt-6 rounded-xl overflow-hidden border border-white/10 shadow-2xl relative group/image">
                                         <div className="absolute inset-0 bg-purple-500/20 mix-blend-overlay opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
                                         <img src={exp.image} alt={exp.company} className="w-full max-h-80 object-cover object-top hover:scale-105 transition-transform duration-700" />
-                                        
+
                                         {(exp as any).imageCaption && (
                                             <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-20 flex items-end">
                                                 <p className="text-white text-sm md:text-base font-medium tracking-wide flex items-center gap-2">

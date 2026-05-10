@@ -111,7 +111,11 @@ export default function Gallery() {
                                             <img
                                                 src={src}
                                                 alt={`Event Gallery ${idx + 1}`}
-                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
+                                                    src.includes('leetcode') 
+                                                    ? 'object-contain bg-black/60 p-2' 
+                                                    : 'object-cover'
+                                                }`}
                                                 loading="lazy"
                                             />
                                         </div>

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaPython, FaJava, FaGithub, FaReact, FaBrain, FaLightbulb, FaGitAlt } from "react-icons/fa";
-import { SiC, SiMysql, SiPostgresql, SiMongodb, SiSpringboot, SiTailwindcss, SiHtmx, SiHuggingface } from "react-icons/si";
+import { SiC, SiMysql, SiPostgresql, SiMongodb, SiSpringboot, SiTailwindcss, SiHtmx, SiHuggingface, SiVercel, SiRender } from "react-icons/si";
 
 const skills = [
     { name: "HTML", icon: FaHtml5, color: "text-orange-500" },
@@ -21,6 +21,8 @@ const skills = [
     { name: "Spring Boot", icon: SiSpringboot, color: "text-green-500" },
     { name: "HTMX", icon: SiHtmx, color: "text-blue-500" },
     { name: "Hugging Face", icon: SiHuggingface, color: "text-yellow-400" },
+    { name: "Vercel", icon: SiVercel, color: "text-white" },
+    { name: "Render", icon: SiRender, color: "text-white" },
     { name: "RAG", icon: FaBrain, color: "text-purple-400" },
     { name: "Problem Solving", icon: FaLightbulb, color: "text-yellow-500" },
 ];
