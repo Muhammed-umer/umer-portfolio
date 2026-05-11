@@ -27,10 +27,10 @@ export default function Hero() {
     }, []);
 
     return (
-        <section id="Hero" className="container mx-auto px-6 pt-28 lg:pt-0 min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 lg:gap-12">
+        <section id="Hero" className="container mx-auto px-6 pt-32 pb-16 lg:pt-0 lg:pb-0 lg:min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 lg:gap-12">
 
             {/* Photo Container */}
-            <div className="w-full lg:flex-1 flex justify-center mt-8 lg:mt-0">
+            <div className="w-full lg:flex-1 flex justify-center">
                 <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] group">
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 to-cyan-500/30 rounded-full blur-3xl animate-pulse group-hover:from-purple-500/40 group-hover:to-cyan-400/40 transition-all duration-500" />
                     <div className="relative w-full h-full rounded-full border-2 border-white/10 overflow-hidden shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
