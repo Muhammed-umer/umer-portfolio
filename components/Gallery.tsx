@@ -19,6 +19,7 @@ const galleryImages = [
 
 export default function Gallery() {
     const [isOpen, setIsOpen] = useState(false);
+    const [showHint, setShowHint] = useState(false);
 
     useEffect(() => {
         const handleOpen = () => setIsOpen(true);
@@ -31,6 +32,13 @@ export default function Gallery() {
             window.removeEventListener('open-gallery', handleOpen);
             window.removeEventListener('close-modals', handleCloseModals);
         };
+    }, []);
+
+    // Auto-show hint on first load for 2 seconds
+    useEffect(() => {
+        const show = setTimeout(() => setShowHint(true), 800);
+        const hide = setTimeout(() => setShowHint(false), 2800);
+        return () => { clearTimeout(show); clearTimeout(hide); };
     }, []);
 
     // Prevent scrolling when modal is open
@@ -59,8 +67,12 @@ export default function Gallery() {
             
             {/* Floating Action Button Wrapper */}
             <div className="fixed bottom-6 right-6 z-40 flex items-center group">
-                {/* Custom Tooltip */}
-                <div className="mr-4 px-4 py-2 bg-[#0f0826]/90 backdrop-blur-md text-gray-200 text-sm font-semibold rounded-xl border border-purple-500/30 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-lg shadow-purple-500/10">
+                {/* Custom Tooltip — shows on hover OR on initial load hint */}
+                <div className={`mr-4 px-4 py-2 bg-[#0f0826]/90 backdrop-blur-md text-gray-200 text-sm font-semibold rounded-xl border border-purple-500/30 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-lg shadow-purple-500/10 ${
+                    showHint
+                        ? 'opacity-100 translate-x-0'
+                        : 'opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0'
+                }`}>
                     Achievement Gallery
                 </div>
                 

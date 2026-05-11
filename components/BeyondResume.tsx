@@ -58,12 +58,12 @@ function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
       <div className="relative z-10 flex flex-col h-full">
         
         {/* Interactive Flip Container */}
-        <div 
+        <div
           className="mb-6 md:mb-8 w-full relative aspect-video group/flip [perspective:1000px] cursor-pointer"
           onClick={() => setIsFlipped(!isFlipped)}
         >
           <div className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] md:group-hover/flip:[transform:rotateY(180deg)] rounded-2xl ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
-            
+
             {/* Front Face */}
             <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl overflow-hidden border border-white/10 shadow-lg">
               <SkeletonImage
@@ -73,7 +73,7 @@ function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
                 className="object-cover"
               />
               <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] md:text-xs font-medium text-white/80 pointer-events-none transition-opacity duration-300 flex items-center gap-2">
-                <Sparkles className="w-3 h-3 text-cyan-400" /> 
+                <Sparkles className="w-3 h-3 text-cyan-400" />
                 <span className="md:hidden">Tap to Flip</span>
                 <span className="hidden md:inline">Hover to Flip</span>
               </div>

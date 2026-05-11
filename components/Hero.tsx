@@ -32,9 +32,45 @@ export default function Hero() {
 
             {/* Photo Container */}
             <div className="w-full lg:flex-1 flex justify-center">
-                <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] group">
+                <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] group transition-transform duration-500 hover:scale-105">
+                    {/* Ambient glow */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 to-cyan-500/30 rounded-full blur-3xl animate-pulse group-hover:from-purple-500/40 group-hover:to-cyan-400/40 transition-all duration-500" />
-                    <div className="relative w-full h-full rounded-full border-2 border-white/10 overflow-hidden shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
+
+                    {/* Open to Work ring — SVG arc mimicking LinkedIn */}
+                    <svg
+                        className="absolute inset-0 w-full h-full z-10 pointer-events-none"
+                        viewBox="0 0 200 200"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <defs>
+                            <linearGradient id="otw-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#a855f7" />
+                                <stop offset="100%" stopColor="#22d3ee" />
+                            </linearGradient>
+                        </defs>
+                        <circle
+                            cx="100" cy="100" r="96"
+                            stroke="url(#otw-gradient)"
+                            strokeWidth="7"
+                            strokeLinecap="round"
+                            strokeDasharray="490"
+                            strokeDashoffset="120"
+                            transform="rotate(-210 100 100)"
+                            className="drop-shadow-[0_0_8px_rgba(168,85,247,0.7)]"
+                        />
+                    </svg>
+
+                    {/* "Open to Work" pill label at bottom */}
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 z-20 whitespace-nowrap">
+                        <div className="flex items-center gap-1.5 bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-[10px] md:text-xs font-bold px-3 py-1 md:px-4 md:py-1.5 rounded-full shadow-lg shadow-purple-500/40 border border-purple-400/30">
+                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white animate-pulse shrink-0"></span>
+                            Open to Work
+                        </div>
+                    </div>
+
+                    {/* Profile photo */}
+                    <div className="relative w-full h-full rounded-full border-2 border-white/10 overflow-hidden shadow-2xl transition-all duration-500 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
                         <SkeletonImage
                             src="/umer.png"
                             alt="Muhammed Umer S"

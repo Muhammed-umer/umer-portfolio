@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Briefcase, Calendar, MapPin, ArrowRight } from "lucide-react";
-import { SkeletonImg } from "./SkeletonImage";
 
 const experienceData = [
     {
@@ -122,13 +121,19 @@ export default function Experience() {
                                 {exp.image && (
                                     <div className="mt-6 rounded-xl overflow-hidden border border-white/10 shadow-2xl relative group/image">
                                         <div className="absolute inset-0 bg-purple-500/20 mix-blend-overlay opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
-                                        <SkeletonImg
-                                          src={exp.image}
-                                          alt={exp.company}
-                                          className="w-full max-h-80 object-cover object-top hover:scale-105 transition-transform duration-700"
-                                          wrapperClassName="w-full"
-                                          skeletonClassName="h-48 rounded-xl"
-                                        />
+                                        <div className="relative w-full">
+                                            {/* Skeleton shown while loading */}
+                                            <div className="absolute inset-0 bg-white/5 animate-pulse rounded-xl z-0 image-skeleton" />
+                                            <img
+                                              src={exp.image}
+                                              alt={exp.company}
+                                              className="w-full max-h-80 object-cover object-top hover:scale-105 transition-transform duration-700 relative z-[1]"
+                                              onLoad={(e) => {
+                                                const skeleton = (e.target as HTMLElement).parentElement?.querySelector('.image-skeleton') as HTMLElement | null;
+                                                if (skeleton) skeleton.style.display = 'none';
+                                              }}
+                                            />
+                                        </div>
 
                                         {(exp as any).imageCaption && (
                                             <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-20 flex items-end">

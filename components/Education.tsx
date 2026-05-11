@@ -15,7 +15,7 @@ const educationData = [
     },
     {
         degree: "Higher Secondary Second Year",
-        institution: "Shri Maruti Metric Higher Secondary School",
+        institution: "Shri Maruti Matric Higher Secondary School",
         period: "Completed in 2022",
         score: "Percentage: 92.67%",
         gradient: "from-blue-500 to-cyan-500",
@@ -23,7 +23,7 @@ const educationData = [
     },
     {
         degree: "10th Standard",
-        institution: "Shri Maruti Metric Higher Secondary School",
+        institution: "Shri Maruti Matric Higher Secondary School",
         period: "Completed in 2020",
         score: "Percentage: 99.4%",
         gradient: "from-emerald-500 to-teal-500",
@@ -46,7 +46,7 @@ export default function Education() {
 
     return (
         <section id="Education" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-24 flex flex-col justify-center">
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -62,9 +62,9 @@ export default function Education() {
             <div ref={containerRef} className="max-w-4xl mx-auto w-full relative">
                 {/* Static Timeline vertical line background */}
                 <div className="absolute left-[18px] md:left-[31px] top-0 bottom-0 w-1 bg-white/5 rounded-full" />
-                
+
                 {/* Animated fill line */}
-                <motion.div 
+                <motion.div
                     className="absolute left-[18px] md:left-[31px] top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-cyan-500 to-emerald-500 rounded-full origin-top z-0"
                     style={{ scaleY }}
                 />
@@ -105,7 +105,7 @@ export default function Education() {
                                         <Building className="w-4 h-4 md:w-5 md:h-5 mr-3 mt-0.5 md:mt-1 shrink-0 text-gray-500" />
                                         <p className="text-base md:text-lg leading-relaxed">{item.institution}</p>
                                     </div>
-                                    
+
                                     <div className="flex items-center text-gray-300 bg-white/5 w-fit px-3 md:px-4 py-1.5 md:py-2 rounded-xl border border-white/5 text-sm md:text-base">
                                         <Award className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-yellow-500" />
                                         <span className="font-semibold">{item.score}</span>
