@@ -286,7 +286,7 @@ export default function Achievements() {
                     <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-24 bg-gradient-to-r from-[#0a051a] to-transparent z-20"></div>
                     <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-[#0a051a] to-transparent z-20"></div>
 
-                    <MarqueeRow items={topRow} direction={-1} />
+                    <MarqueeRow items={topRow} />
                     <MarqueeRow items={bottomRow} reverse={true} />
                 </div>
             </div>
