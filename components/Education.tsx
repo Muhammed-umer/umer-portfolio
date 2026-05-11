@@ -89,7 +89,7 @@ export default function Education() {
                             </div>
 
                             {/* Content */}
-                            <div className="flex-1 bg-white/5 border border-white/10 p-5 md:p-8 rounded-2xl transition-all duration-300 shadow-xl hover:-translate-y-2 hover:shadow-2xl hover:border-white/20 hover:bg-white/10 active:bg-white/10 active:-translate-y-1 active:border-purple-500/50">
+                            <div className="flex-1 bg-white/5 border border-white/10 p-5 md:p-8 rounded-2xl transition-all duration-300 shadow-xl hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 active:bg-white/10 active:-translate-y-1 active:border-purple-500/50">
                                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 md:gap-4 mb-4">
                                     <h3 className="text-xl md:text-2xl font-bold text-gray-100 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
                                         {item.degree}

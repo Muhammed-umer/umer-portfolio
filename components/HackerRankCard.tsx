@@ -68,7 +68,7 @@ export default function HackerRankCard() {
             rel="noopener noreferrer"
             className="block w-full h-full"
         >
-            <div className="relative w-full h-full bg-[#110A1F] border border-white/10 rounded-3xl p-6 md:p-8 group hover:shadow-2xl hover:shadow-green-500/20 hover:border-green-500/30 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between">
+            <div className="relative w-full h-full bg-[#110A1F] border border-white/10 rounded-3xl p-6 md:p-8 group hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col justify-between">
                 <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
                 <div className="relative z-10 flex items-center gap-4 mb-6">

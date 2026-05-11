@@ -160,7 +160,7 @@ export default function Projects() {
         {mounted && totalPages > 1 && (
           <button 
             onClick={prevPage}
-            className="absolute left-0 md:-left-4 lg:-left-8 xl:-left-12 z-20 p-3 md:p-4 rounded-full bg-black/60 border border-white/10 text-white hover:bg-white/10 hover:scale-110 active:scale-95 transition-all duration-300 backdrop-blur-md group"
+            className="absolute left-0 md:-left-4 lg:-left-8 xl:-left-12 z-50 p-3 md:p-4 rounded-full bg-black/60 border border-white/10 text-white hover:bg-white/10 hover:scale-110 active:scale-95 transition-all duration-300 backdrop-blur-md group"
             aria-label="Previous page"
           >
             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 group-hover:-translate-x-1 transition-transform" />
@@ -184,7 +184,7 @@ export default function Projects() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    className={`group relative flex flex-col h-full rounded-[2.5rem] bg-[#0A0A0A]/80 backdrop-blur-3xl border-2 ${project.border} overflow-hidden hover:-translate-y-4 hover:border-purple-500/40 hover:shadow-[0_20px_50px_rgba(168,85,247,0.15)] transition-all duration-500`}
+                    className={`group relative flex flex-col h-full rounded-[2.5rem] bg-[#0A0A0A]/80 backdrop-blur-3xl border-2 ${project.border} overflow-hidden hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500`}
                   >
                     {/* Subtle top light effect */}
                     <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -266,7 +266,7 @@ export default function Projects() {
         {mounted && totalPages > 1 && (
           <button 
             onClick={nextPage}
-            className="absolute right-0 md:-right-4 lg:-right-8 xl:-right-12 z-20 p-3 md:p-4 rounded-full bg-black/60 border border-white/10 text-white hover:bg-white/10 hover:scale-110 active:scale-95 transition-all duration-300 backdrop-blur-md group"
+            className="absolute right-0 md:-right-4 lg:-right-8 xl:-right-12 z-50 p-3 md:p-4 rounded-full bg-black/60 border border-white/10 text-white hover:bg-white/10 hover:scale-110 active:scale-95 transition-all duration-300 backdrop-blur-md group"
             aria-label="Next page"
           >
             <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />

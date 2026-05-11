@@ -325,7 +325,7 @@ export default function Achievements() {
                                     {achievementsData.map((item, idx) => (
                                         <div 
                                             key={idx} 
-                                            className="relative bg-white/5 border border-white/10 p-6 rounded-3xl hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300 group flex flex-col justify-between"
+                                            className="relative bg-white/5 border border-white/10 p-6 rounded-3xl hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 transition-all duration-300 group flex flex-col justify-between"
                                         >
                                             <div className="absolute -top-4 -right-2 z-10 flex items-center justify-center">
                                                 {item.badge === "1st Prize" && (

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Sparkles, Users, Presentation, Cpu, BookOpen } from "lucide-react";
@@ -11,7 +12,7 @@ const events = [
     description: "Organized and led the Smart Campus Hackathon with a team of 15 members. Managed event planning, coordination, and execution for intra-college participants. Oversaw registrations, evaluation process, and ensured smooth execution of the event.",
     images: ["/beyond_resume/sch1.jpeg", "/beyond_resume/sch2.jpeg"],
     gradient: "from-purple-500/20 to-fuchsia-500/20",
-    border: "group-hover:border-purple-500/50"
+    border: "group-hover/card:border-purple-500/50"
   },
   {
     title: "ITEF Paper Presentation",
@@ -19,7 +20,7 @@ const events = [
     description: "Our paper \"AI for Climate Forecasting and Resource Optimization – Advancing SDG 13\" was selected, and we proudly presented it as a team at the International Tamil Engineers Forum (ITEF).",
     images: ["/beyond_resume/itef2.jpeg", "/beyond_resume/itef1.jpeg"],
     gradient: "from-blue-500/20 to-cyan-500/20",
-    border: "group-hover:border-blue-500/50"
+    border: "group-hover/card:border-blue-500/50"
   },
   {
     title: "AI Tools Seminar for EEE",
@@ -27,7 +28,7 @@ const events = [
     description: "Conducted an interactive seminar for 3rd-year EEE students detailing the practical applications and capabilities of modern AI tools like Gemini, Claude, ChatGPT, Comet, Perplexity, and more.",
     images: ["/beyond_resume/eee1.jpeg", "/beyond_resume/eee2.jpeg"],
     gradient: "from-emerald-500/20 to-teal-500/20",
-    border: "group-hover:border-emerald-500/50"
+    border: "group-hover/card:border-emerald-500/50"
   },
   {
     title: "Class Seminars & Knowledge Sharing",
@@ -35,9 +36,76 @@ const events = [
     description: "Regularly took the initiative to conduct numerous technical seminars within the class, fostering a collaborative learning environment and sharing insights on emerging tech.",
     images: ["/beyond_resume/class1.jpeg", "/beyond_resume/class2.jpg"],
     gradient: "from-amber-500/20 to-orange-500/20",
-    border: "group-hover:border-amber-500/50"
+    border: "group-hover/card:border-amber-500/50"
   }
 ];
+
+function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: idx * 0.1 }}
+      className={`group/card relative rounded-3xl bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/10 p-6 md:p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 transition-all duration-500 overflow-hidden flex flex-col`}
+    >
+      {/* Hover Gradient Background */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${event.gradient} opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none`}></div>
+      
+      <div className="relative z-10 flex flex-col h-full">
+        
+        {/* Interactive Flip Container */}
+        <div 
+          className="mb-6 md:mb-8 w-full relative aspect-video group/flip [perspective:1000px] cursor-pointer"
+          onClick={() => setIsFlipped(!isFlipped)}
+        >
+          <div className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] md:group-hover/flip:[transform:rotateY(180deg)] rounded-2xl ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
+            
+            {/* Front Face */}
+            <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+              <Image
+                src={event.images[0]}
+                alt={`${event.title} front`}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] md:text-xs font-medium text-white/80 pointer-events-none transition-opacity duration-300 flex items-center gap-2">
+                <Sparkles className="w-3 h-3 text-cyan-400" /> 
+                <span className="md:hidden">Tap to Flip</span>
+                <span className="hidden md:inline">Hover to Flip</span>
+              </div>
+            </div>
+
+            {/* Back Face */}
+            <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+              <Image
+                src={event.images[1]}
+                alt={`${event.title} back`}
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Text Content */}
+        <div className="flex items-center gap-4 mb-4">
+          <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shrink-0">
+            {event.icon}
+          </div>
+          <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight">{event.title}</h3>
+        </div>
+        
+        <div className="text-gray-400 text-sm md:text-lg leading-relaxed flex-grow">
+          {event.description}
+        </div>
+
+      </div>
+    </motion.div>
+  );
+}
 
 export default function BeyondResume() {
   return (
@@ -70,87 +138,7 @@ export default function BeyondResume() {
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 px-4 md:px-0">
         {events.map((event, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className={`group/card relative rounded-3xl bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/10 p-6 md:p-8 hover:-translate-y-2 transition-all duration-500 overflow-hidden ${event.border} flex flex-col`}
-          >
-            {/* Hover Gradient Background */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${event.gradient} opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none`}></div>
-            
-            <div className="relative z-10 flex flex-col h-full">
-              
-              {/* Image Container - Desktop (Flip) & Mobile (Side-by-side) */}
-              <div className="mb-6 md:mb-8 w-full">
-                
-                {/* Desktop View: Interactive Flip Card */}
-                <div className="hidden md:block relative w-full aspect-video group/flip [perspective:1000px]">
-                  <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover/flip:[transform:rotateY(180deg)] rounded-2xl">
-                    
-                    {/* Front Face */}
-                    <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-                      <Image
-                        src={event.images[0]}
-                        alt={`${event.title} front`}
-                        fill
-                        className="object-cover"
-                      />
-                      {/* Hint for interaction */}
-                      <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-medium text-white/80 pointer-events-none opacity-100 group-hover/flip:opacity-0 transition-opacity duration-300 flex items-center gap-2">
-                        <Sparkles className="w-3 h-3 text-cyan-400" /> Hover to Flip
-                      </div>
-                    </div>
-
-                    {/* Back Face */}
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-                      <Image
-                        src={event.images[1]}
-                        alt={`${event.title} back`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Mobile View: Dual side-by-side images clearly visible */}
-                <div className="flex md:hidden gap-3 w-full aspect-[2/1]">
-                  <div className="relative flex-1 rounded-xl overflow-hidden border border-white/10 shadow-lg">
-                    <Image
-                      src={event.images[0]}
-                      alt={`${event.title} view 1`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative flex-1 rounded-xl overflow-hidden border border-white/10 shadow-lg">
-                    <Image
-                      src={event.images[1]}
-                      alt={`${event.title} view 2`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Text Content (Below Images) */}
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shrink-0">
-                  {event.icon}
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight">{event.title}</h3>
-              </div>
-              
-              <div className="text-gray-400 text-sm md:text-lg leading-relaxed flex-grow">
-                {event.description}
-              </div>
-
-            </div>
-          </motion.div>
+          <EventCard key={idx} event={event} idx={idx} />
         ))}
       </div>
 

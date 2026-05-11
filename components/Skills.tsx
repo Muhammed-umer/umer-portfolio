@@ -52,7 +52,7 @@ export default function Skills() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.05 }}
-                            className="group bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center gap-3 hover:-translate-y-2 hover:bg-white/10 hover:shadow-2xl hover:shadow-purple-500/10 hover:border-white/20 transition-all duration-300 cursor-pointer"
+                            className="group bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center gap-3 hover:-translate-y-2 hover:bg-white/10 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
                         >
                             <skill.icon className={`w-8 h-8 md:w-12 md:h-12 transition-colors duration-300 ${skill.color}`} />
                             <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">
