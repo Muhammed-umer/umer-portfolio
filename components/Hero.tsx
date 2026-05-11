@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Download } from "lucide-react";
 import Image from "next/image";
+import { SkeletonImage } from "./SkeletonImage";
 import { FaGithub, FaLinkedin, FaHackerrank, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
@@ -34,7 +35,7 @@ export default function Hero() {
                 <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] group">
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 to-cyan-500/30 rounded-full blur-3xl animate-pulse group-hover:from-purple-500/40 group-hover:to-cyan-400/40 transition-all duration-500" />
                     <div className="relative w-full h-full rounded-full border-2 border-white/10 overflow-hidden shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
-                        <Image
+                        <SkeletonImage
                             src="/umer.png"
                             alt="Muhammed Umer S"
                             fill

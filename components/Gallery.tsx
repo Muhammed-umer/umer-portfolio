@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Image as ImageIcon } from "lucide-react";
+import { SkeletonImg } from "./SkeletonImage";
 
 const galleryImages = [
     "/Collector Office.jpeg",
@@ -108,7 +109,7 @@ export default function Gallery() {
                                     {galleryImages.map((src, idx) => (
                                         <div key={idx} className="relative aspect-[4/3] rounded-2xl overflow-hidden group border border-white/10 shadow-lg cursor-pointer">
                                             <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                                            <img
+                                            <SkeletonImg
                                                 src={src}
                                                 alt={`Event Gallery ${idx + 1}`}
                                                 className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
@@ -117,6 +118,7 @@ export default function Gallery() {
                                                     : 'object-cover'
                                                 }`}
                                                 loading="lazy"
+                                                wrapperClassName="w-full h-full"
                                             />
                                         </div>
                                     ))}

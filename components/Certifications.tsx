@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { SkeletonImg } from "./SkeletonImage";
 
 // Certificate images from the public/cert folder
 const certificatesData = [
@@ -119,10 +120,12 @@ export default function Certifications() {
               className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
             >
               {currentCert.image ? (
-                <img 
-                  src={currentCert.image} 
+                <SkeletonImg
+                  src={currentCert.image}
                   alt={`Certificate ${currentIndex + 1}`}
                   className="w-full h-full object-contain md:object-cover pointer-events-none"
+                  wrapperClassName="w-full h-full"
+                  skeletonClassName="rounded-none"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-white/5 text-gray-500">

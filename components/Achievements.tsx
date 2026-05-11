@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Medal, Award, Star, MapPin, Image as ImageIcon, X, List } from "lucide-react";
 import HackerRankCard from "./HackerRankCard";
+import { SkeletonImg } from "./SkeletonImage";
 
 const achievementsData = [
     {
@@ -234,10 +235,12 @@ export default function Achievements() {
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                         <a href="https://leetcode.com/u/Muhammed_Umer/" target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
-                            <img 
+                            <SkeletonImg 
                                 src="https://leetcard.jacoblin.cool/Muhammed_Umer?theme=dark&font=Inter&ext=heatmap" 
                                 alt="LeetCode Profile" 
                                 className="w-full h-full object-contain relative z-10 p-4"
+                                wrapperClassName="w-full h-full"
+                                skeletonClassName="rounded-3xl m-4"
                             />
                         </a>
                     </motion.div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { SkeletonImage } from "./SkeletonImage";
 import { Sparkles, Users, Presentation, Cpu, BookOpen } from "lucide-react";
 
 const events = [
@@ -65,7 +66,7 @@ function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
             
             {/* Front Face */}
             <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-              <Image
+              <SkeletonImage
                 src={event.images[0]}
                 alt={`${event.title} front`}
                 fill
@@ -80,7 +81,7 @@ function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
 
             {/* Back Face */}
             <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-              <Image
+              <SkeletonImage
                 src={event.images[1]}
                 alt={`${event.title} back`}
                 fill
