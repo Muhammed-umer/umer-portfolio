@@ -9,7 +9,7 @@ const educationData = [
         degree: "B.E. Computer Science and Engineering",
         institution: "Government College of Engineering Erode",
         period: "2023 - 2027",
-        score: "CGPA: 8.7 (till 6th semester)",
+        score: "CGPA: 8.90 / 10 (Till 5th Semester)",
         gradient: "from-purple-500 to-indigo-500",
         shadow: "shadow-purple-500/20"
     },

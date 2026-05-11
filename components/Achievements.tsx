@@ -238,9 +238,9 @@ export default function Achievements() {
                             <SkeletonImg 
                                 src="https://leetcard.jacoblin.cool/Muhammed_Umer?theme=dark&font=Inter&ext=heatmap" 
                                 alt="LeetCode Profile" 
-                                className="w-full h-full object-contain relative z-10 p-4"
-                                wrapperClassName="w-full h-full"
-                                skeletonClassName="rounded-3xl m-4"
+                                className="w-full h-full object-contain relative z-10 p-2 md:p-4"
+                                wrapperClassName="w-full h-full flex items-center justify-center"
+                                skeletonClassName="rounded-3xl"
                             />
                         </a>
                     </motion.div>

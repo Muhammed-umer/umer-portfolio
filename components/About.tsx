@@ -61,7 +61,7 @@ export default function About() {
 
             <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
               <p>
-                I am a <strong className="text-white font-semibold">Computer Science Engineering student</strong> who bridges the gap between theoretical algorithms and real-world engineering.
+                I am a <strong className="text-white font-semibold">Computer Science Engineering student</strong> with strong problem-solving skills and hands-on experience in Java, Spring Boot, React, and AI-based applications. I have solved <strong className="text-purple-400">600+ LeetCode problems</strong> and built full-stack and LLM-integrated projects through internships and hackathons.
               </p>
 
               <div className="pt-4">
