@@ -217,11 +217,10 @@ export default function Achievements() {
                     transition={{ duration: 0.5 }}
                     className="text-center space-y-4"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight">My <span className="text-purple-400">Achievements</span></h2>
-                    <div className="w-16 h-1 bg-purple-500 mx-auto rounded-full mt-4"></div>
-                    
-
-                    
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white text-center">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">Achievements</span> & Stats
+                    </h2>
+                    <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full mt-4"></div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8 w-full max-w-5xl mx-auto">

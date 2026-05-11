@@ -62,10 +62,10 @@ export default function BeyondResume() {
             <Sparkles className="w-8 h-8 text-cyan-400 animate-pulse" />
           </span>
         </h2>
-        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+        <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full mt-4 mb-4"></div>
+        <p className="text-gray-400 max-w-2xl mx-auto text-lg text-center">
           Leadership, seminars, event organization, and more. A glimpse into my active involvement beyond just code.
         </p>
-        <div className="w-16 h-1 bg-cyan-500 mx-auto rounded-full mt-4"></div>
       </motion.div>
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 px-4 md:px-0">

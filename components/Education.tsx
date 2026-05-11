@@ -53,10 +53,10 @@ export default function Education() {
                 transition={{ duration: 0.5 }}
                 className="text-center mb-16 space-y-4"
             >
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                    My <span className="text-purple-400">Education</span>
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white text-center">
+                    My <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">Education</span>
                 </h2>
-                <div className="w-16 h-1 bg-purple-500 mx-auto rounded-full mt-4"></div>
+                <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full mt-4"></div>
             </motion.div>
 
             <div ref={containerRef} className="max-w-4xl mx-auto w-full relative">

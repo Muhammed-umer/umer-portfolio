@@ -81,10 +81,10 @@ export default function Certifications() {
         transition={{ duration: 0.5 }}
         className="text-center mb-10 md:mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white text-center">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">Certificates</span>
         </h2>
-        <div className="w-16 h-1 bg-purple-500 mx-auto rounded-full mt-4"></div>
+        <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full mt-4"></div>
       </motion.div>
 
       <div className="max-w-4xl mx-auto relative flex items-center justify-center">

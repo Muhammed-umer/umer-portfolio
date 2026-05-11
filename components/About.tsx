@@ -36,10 +36,10 @@ export default function About() {
         transition={{ duration: 0.5 }}
         className="text-center mb-16 md:mb-24 space-y-4"
       >
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
-          About <span className="text-purple-400">Me</span>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white text-center">
+          About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">Me</span>
         </h2>
-        <div className="w-16 h-1 bg-purple-500 mx-auto rounded-full mt-4"></div>
+        <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full mt-4"></div>
       </motion.div>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
