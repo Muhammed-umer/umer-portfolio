@@ -55,7 +55,7 @@ export default function Contact() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        
+
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
@@ -73,7 +73,7 @@ export default function Contact() {
             });
 
             const result = await response.json();
-            
+
             if (result.success) {
                 setIsSent(true);
                 setFormData({ name: "", email: "", subject: "", message: "" });
@@ -93,7 +93,7 @@ export default function Contact() {
     return (
         <section id="Contact" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-24 flex flex-col justify-center">
             <div className="max-w-6xl mx-auto w-full">
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -108,7 +108,7 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-start">
                     {/* Contact Info */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -120,11 +120,11 @@ export default function Contact() {
                             <p className="text-gray-400 mb-8 leading-relaxed">
                                 Prefer reaching out directly? You can drop me an email or send a quick message on WhatsApp. I'm highly responsive on both!
                             </p>
-                            
+
                             <div className="flex flex-col gap-4 mb-10">
-                                <a href="mailto:muhammedumer77md@gmail.com" className="w-full flex items-center justify-center sm:justify-start gap-4 bg-purple-500/10 text-purple-400 hover:bg-purple-500 hover:text-white border border-purple-500/20 py-4 px-6 rounded-xl transition-all duration-300 font-semibold group shadow-lg shadow-purple-500/5 hover:shadow-purple-500/25">
+                                <a href="mailto:mohdumer77md@gmail.com" className="w-full flex items-center justify-center sm:justify-start gap-4 bg-purple-500/10 text-purple-400 hover:bg-purple-500 hover:text-white border border-purple-500/20 py-4 px-6 rounded-xl transition-all duration-300 font-semibold group shadow-lg shadow-purple-500/5 hover:shadow-purple-500/25">
                                     <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                                    <span className="tracking-wide">muhammedumer77md@gmail.com</span>
+                                    <span className="tracking-wide">mohdumer77md@gmail.com</span>
                                 </a>
                                 <a href="https://wa.me/919445886230" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center sm:justify-start gap-4 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-white border border-emerald-500/20 py-4 px-6 rounded-xl transition-all duration-300 font-semibold group shadow-lg shadow-emerald-500/5 hover:shadow-emerald-500/25">
                                     <FaWhatsapp className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -136,11 +136,11 @@ export default function Contact() {
                                 <p className="text-xs uppercase tracking-widest font-bold text-gray-500">Social Profiles</p>
                                 <div className="flex flex-wrap gap-4">
                                     {socialLinks.map((link, idx) => (
-                                        <a 
-                                            key={idx} 
-                                            href={link.url} 
-                                            target="_blank" 
-                                            rel="noopener noreferrer" 
+                                        <a
+                                            key={idx}
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             aria-label={link.name}
                                             className={`w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:-translate-y-1 shadow-lg transition-all duration-300 group ${link.hoverClass}`}
                                         >
@@ -188,7 +188,7 @@ export default function Contact() {
                                     />
                                 </div>
                             </div>
-                            
+
                             <div className="space-y-2">
                                 <label htmlFor="subject" className="text-sm font-medium text-gray-300 ml-1">Subject</label>
                                 <input
@@ -218,7 +218,7 @@ export default function Contact() {
                             </div>
 
                             {isSent && (
-                                <motion.div 
+                                <motion.div
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-4 rounded-xl flex items-center gap-3"
