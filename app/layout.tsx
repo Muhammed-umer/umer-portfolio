@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://muhammed-umer-s.vercel.app"),
   title: "Muhammed Umer S | Portfolio - Software Developer",
   description: "Professional portfolio of Muhammed Umer S (Md Umer), a passionate Software Developer based in Erode, India. Explore my full-stack projects, skills, and achievements.",
   keywords: [
