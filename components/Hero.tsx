@@ -86,10 +86,10 @@ export default function Hero() {
             {/* Text Content */}
             <div className="w-full lg:flex-1 text-center lg:text-left space-y-6 lg:space-y-8">
                 <div className="space-y-4">
-                    <h2 className="font-extrabold tracking-tight">
+                    <h1 className="font-extrabold tracking-tight">
                         <span className="text-2xl md:text-4xl text-gray-200">Hi, I'm</span> <br />
                         <span className="text-4xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mt-2 block">Muhammed Umer</span>
-                    </h2>
+                    </h1>
 
                     <div className="flex flex-col items-center lg:items-start text-xl md:text-4xl font-medium text-gray-300">
                         <span>I'm a Professional</span>
