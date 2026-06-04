@@ -7,14 +7,15 @@ import { SkeletonImg } from "./SkeletonImage";
 
 // Certificate images from the public/cert folder
 const certificatesData = [
-  { id: 1, image: "/cert/cert1.jpg" },
-  { id: 2, image: "/cert/cert2.png" },
-  { id: 3, image: "/cert/cert3.png" },
-  { id: 4, image: "/cert/cert4.png" },
-  { id: 5, image: "/cert/cert5.png" },
-  { id: 6, image: "/cert/cert6.png" },
-  { id: 7, image: "/cert/certA.jpg" },
-  { id: 8, image: "/cert/certb.jpg" }
+  { id: 1, image: "/cert/certP.png" },
+  { id: 2, image: "/cert/cert1.jpg" },
+  { id: 3, image: "/cert/cert2.png" },
+  { id: 4, image: "/cert/cert3.png" },
+  { id: 5, image: "/cert/cert4.png" },
+  { id: 6, image: "/cert/cert5.png" },
+  { id: 7, image: "/cert/cert6.png" },
+  { id: 8, image: "/cert/certA.jpg" },
+  { id: 9, image: "/cert/certb.jpg" }
 ];
 
 export default function Certifications() {
