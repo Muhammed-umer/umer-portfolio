@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { SkeletonImage } from "./SkeletonImage";
-import { Sparkles, Users, Presentation, Cpu, BookOpen } from "lucide-react";
+import { Sparkles, Users, Presentation, Cpu, BookOpen, Trophy } from "lucide-react";
 
 const events = [
   {
@@ -13,6 +13,14 @@ const events = [
     description: "Organized and led the Smart Campus Hackathon with a team of 15 members. Managed event planning, coordination, and execution for intra-college participants. Oversaw registrations, evaluation process, and ensured smooth execution of the event.",
     images: ["/beyond_resume/sch1.jpeg", "/beyond_resume/sch2.jpeg"],
     gradient: "from-purple-500/20 to-fuchsia-500/20",
+    border: "group-hover/card:border-purple-500/50"
+  },
+  {
+    title: "AgentVerse AI Project Expo",
+    icon: <Trophy className="w-6 h-6 text-purple-400" />,
+    description: "Secured Top 4th position among 30+ teams in the AgentVerse AI Project Expo (March 2026). Developed a fully proctored placement management system as a team of 2.",
+    images: ["/01.jpeg", "/01.jpeg"],
+    gradient: "from-purple-500/20 to-indigo-500/20",
     border: "group-hover/card:border-purple-500/50"
   },
   {
@@ -54,9 +62,9 @@ function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
     >
       {/* Hover Gradient Background */}
       <div className={`absolute inset-0 bg-gradient-to-br ${event.gradient} opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none`}></div>
-      
+
       <div className="relative z-10 flex flex-col h-full">
-        
+
         {/* Interactive Flip Container */}
         <div
           className="mb-6 md:mb-8 w-full relative aspect-video group/flip [perspective:1000px] cursor-pointer"
@@ -98,7 +106,7 @@ function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
           </div>
           <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight">{event.title}</h3>
         </div>
-        
+
         <div className="text-gray-400 text-sm md:text-lg leading-relaxed flex-grow">
           {event.description}
         </div>
@@ -117,7 +125,7 @@ export default function BeyondResume() {
         <div className="absolute bottom-[30%] right-[10%] w-96 h-96 bg-blue-500/10 rounded-full blur-[120px]"></div>
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -139,7 +147,12 @@ export default function BeyondResume() {
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 px-4 md:px-0">
         {events.map((event, idx) => (
-          <EventCard key={idx} event={event} idx={idx} />
+          <div
+            key={idx}
+            className={idx === events.length - 1 && events.length % 2 !== 0 ? "lg:col-span-2 lg:max-w-[calc(50%-24px)] lg:mx-auto w-full" : ""}
+          >
+            <EventCard event={event} idx={idx} />
+          </div>
         ))}
       </div>
 

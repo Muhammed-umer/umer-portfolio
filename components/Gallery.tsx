@@ -1,29 +1,67 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Image as ImageIcon } from "lucide-react";
+import { X, Image as ImageIcon, ChevronLeft, ChevronRight } from "lucide-react";
 import { SkeletonImg } from "./SkeletonImage";
 
 const galleryImages = [
-    "/Collector Office.jpeg",
-    "/8.jpeg",
-    "/1.jpeg",
-    "/4.jpeg",
-    "/5.jpeg",
-    "/2.jpeg",
-    "/3.jpeg",
-    "/6.jpeg",
-    "/7.jpeg",
-    "/leetcode 300 days badge.jpg"
+    {
+        src: "/Collector Office.jpeg",
+        caption: "Receiving internship completion certificate from Erode District Collector (NIC Internship)."
+    },
+    {
+        src: "/8.jpeg",
+        caption: "1st Prize in Inferno technical event (Code from Output) at GCT Coimbatore (Feb 2026)."
+    },
+    {
+        src: "/01.jpeg",
+        caption: "Top 4th Position at AgentVerse AI Project Expo, presenting our placement system to HOD (March 2026)."
+    },
+    {
+        src: "/1.jpeg",
+        caption: "1st Prize in CodeQuest coding contest at GCT Coimbatore (Feb 2026)."
+    },
+    {
+        src: "/4.jpeg",
+        caption: "1st Prize in CrackNCode coding contest at PSG iTech, Coimbatore (Feb 2026)."
+    },
+    {
+        src: "/5.jpeg",
+        caption: "1st Prize in Blind Coding contest at GCE Erode (March 2026)."
+    },
+    {
+        src: "/2.jpeg",
+        caption: "1st Prize in Code Debugging contest during GUSTO 2026 (March 2026)."
+    },
+    {
+        src: "/3.jpeg",
+        caption: "1st Prize in Code Debugging contest during GUSTO 2025 (April 2025)."
+    },
+    {
+        src: "/6.jpeg",
+        caption: "2nd Prize in Inter College Coding Contest at Kongu Engineering College (Feb 2026)."
+    },
+    {
+        src: "/7.jpeg",
+        caption: "2nd Prize Paper Presentation (Hallucination-Free AI using RAG) at Kongu Engineering College (Feb 2026)."
+    },
+    {
+        src: "/leetcode 300 days badge.jpg",
+        caption: "LeetCode 300 Days Coding Badge (Consistency and Problem Solving milestone)."
+    }
 ];
 
 export default function Gallery() {
     const [isOpen, setIsOpen] = useState(false);
     const [showHint, setShowHint] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
     useEffect(() => {
         const handleOpen = () => setIsOpen(true);
-        const handleCloseModals = () => setIsOpen(false);
+        const handleCloseModals = () => {
+            setIsOpen(false);
+            setLightboxIndex(null);
+        };
         
         window.addEventListener('open-gallery', handleOpen);
         window.addEventListener('close-modals', handleCloseModals);
@@ -43,7 +81,7 @@ export default function Gallery() {
 
     // Prevent scrolling when modal is open
     useEffect(() => {
-        if (isOpen) {
+        if (isOpen || lightboxIndex !== null) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
@@ -51,7 +89,31 @@ export default function Gallery() {
         return () => {
             document.body.style.overflow = 'unset';
         };
-    }, [isOpen]);
+    }, [isOpen, lightboxIndex]);
+
+    const handlePrev = () => {
+        if (lightboxIndex !== null) {
+            setLightboxIndex((prev) => (prev === null || prev === 0 ? galleryImages.length - 1 : prev - 1));
+        }
+    };
+
+    const handleNext = () => {
+        if (lightboxIndex !== null) {
+            setLightboxIndex((prev) => (prev === null || prev === galleryImages.length - 1 ? 0 : prev + 1));
+        }
+    };
+
+    // Keyboard controls for Lightbox
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (lightboxIndex === null) return;
+            if (e.key === "ArrowLeft") handlePrev();
+            if (e.key === "ArrowRight") handleNext();
+            if (e.key === "Escape") setLightboxIndex(null);
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [lightboxIndex]);
 
     return (
         <>
@@ -118,14 +180,24 @@ export default function Gallery() {
 
                             <div className="p-6 overflow-y-auto hide-scroll">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                                    {galleryImages.map((src, idx) => (
-                                        <div key={idx} className="relative aspect-[4/3] rounded-2xl overflow-hidden group border border-white/10 shadow-lg cursor-pointer">
-                                            <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                                    {galleryImages.map((item, idx) => (
+                                        <div 
+                                            key={idx} 
+                                            onClick={() => setLightboxIndex(idx)}
+                                            className="relative aspect-[4/3] rounded-2xl overflow-hidden group border border-white/10 shadow-lg cursor-pointer"
+                                        >
+                                            {/* Beautiful dark gradient with animated caption text on hover */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col justify-end p-4">
+                                                <p className="text-white text-xs md:text-sm font-semibold translate-y-2 group-hover:translate-y-0 transition-transform duration-300 leading-snug">
+                                                    {item.caption}
+                                                </p>
+                                            </div>
+                                            
                                             <SkeletonImg
-                                                src={src}
-                                                alt={`Event Gallery ${idx + 1}`}
+                                                src={item.src}
+                                                alt={item.caption}
                                                 className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
-                                                    src.includes('leetcode') 
+                                                    item.src.includes('leetcode') 
                                                     ? 'object-contain bg-black/60 p-2' 
                                                     : 'object-cover'
                                                 }`}
@@ -135,6 +207,84 @@ export default function Gallery() {
                                         </div>
                                     ))}
                                 </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+
+            {/* Lightbox Modal */}
+            <AnimatePresence>
+                {lightboxIndex !== null && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+                        {/* Semi-transparent Backdrop click to close */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setLightboxIndex(null)}
+                            className="absolute inset-0 bg-black/95 backdrop-blur-md"
+                        />
+
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            className="relative w-full max-w-4xl max-h-[90vh] flex flex-col items-center justify-center z-10 gap-4"
+                        >
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setLightboxIndex(null)}
+                                className="absolute top-[-50px] right-0 p-3 rounded-full bg-white/5 hover:bg-white/10 hover:bg-red-500/20 text-gray-300 hover:text-red-400 transition-colors z-20"
+                                aria-label="Close Lightbox"
+                            >
+                                <X className="w-6 h-6" />
+                            </button>
+
+                            {/* Main Slide view */}
+                            <div className="relative w-full aspect-[4/3] max-h-[70vh] bg-black/40 rounded-3xl overflow-hidden border border-white/10 flex items-center justify-center group/lightbox">
+                                <img
+                                    src={galleryImages[lightboxIndex].src}
+                                    alt={galleryImages[lightboxIndex].caption}
+                                    className={`max-w-full max-h-full object-contain select-none transition-all duration-300 ${
+                                        galleryImages[lightboxIndex].src.includes('leetcode') 
+                                        ? 'p-6' 
+                                        : ''
+                                    }`}
+                                />
+
+                                {/* Left navigation arrow */}
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+                                    className="absolute left-4 p-3 rounded-full bg-black/60 hover:bg-black/80 text-gray-300 hover:text-white border border-white/10 transition-all duration-300 md:opacity-0 md:group-hover/lightbox:opacity-100 z-20"
+                                    aria-label="Previous Image"
+                                >
+                                    <ChevronLeft className="w-6 h-6" />
+                                </button>
+
+                                {/* Right navigation arrow */}
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); handleNext(); }}
+                                    className="absolute right-4 p-3 rounded-full bg-black/60 hover:bg-black/80 text-gray-300 hover:text-white border border-white/10 transition-all duration-300 md:opacity-0 md:group-hover/lightbox:opacity-100 z-20"
+                                    aria-label="Next Image"
+                                >
+                                    <ChevronRight className="w-6 h-6" />
+                                </button>
+                            </div>
+
+                            {/* Caption text display */}
+                            <div className="w-full text-center px-4 max-w-2xl">
+                                <motion.p 
+                                    key={lightboxIndex}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="text-white text-base md:text-lg font-medium leading-relaxed"
+                                >
+                                    {galleryImages[lightboxIndex].caption}
+                                </motion.p>
+                                <span className="inline-block mt-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-400">
+                                    {lightboxIndex + 1} of {galleryImages.length}
+                                </span>
                             </div>
                         </motion.div>
                     </div>
