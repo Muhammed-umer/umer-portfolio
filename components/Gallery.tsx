@@ -5,50 +5,17 @@ import { X, Image as ImageIcon, ChevronLeft, ChevronRight } from "lucide-react";
 import { SkeletonImg } from "./SkeletonImage";
 
 const galleryImages = [
-    {
-        src: "/Collector Office.jpeg",
-        caption: "Receiving internship completion certificate from Erode District Collector (NIC Internship)."
-    },
-    {
-        src: "/8.jpeg",
-        caption: "1st Prize in Inferno technical event (Code from Output) at GCT Coimbatore (Feb 2026)."
-    },
-    {
-        src: "/01.jpeg",
-        caption: "Top 4th Position at AgentVerse AI Project Expo, presenting our placement system to HOD (March 2026)."
-    },
-    {
-        src: "/1.jpeg",
-        caption: "1st Prize in CodeQuest coding contest at GCT Coimbatore (Feb 2026)."
-    },
-    {
-        src: "/4.jpeg",
-        caption: "1st Prize in CrackNCode coding contest at PSG iTech, Coimbatore (Feb 2026)."
-    },
-    {
-        src: "/5.jpeg",
-        caption: "1st Prize in Blind Coding contest at GCE Erode (March 2026)."
-    },
-    {
-        src: "/2.jpeg",
-        caption: "1st Prize in Code Debugging contest during GUSTO 2026 (March 2026)."
-    },
-    {
-        src: "/3.jpeg",
-        caption: "1st Prize in Code Debugging contest during GUSTO 2025 (April 2025)."
-    },
-    {
-        src: "/6.jpeg",
-        caption: "2nd Prize in Inter College Coding Contest at Kongu Engineering College (Feb 2026)."
-    },
-    {
-        src: "/7.jpeg",
-        caption: "2nd Prize Paper Presentation (Hallucination-Free AI using RAG) at Kongu Engineering College (Feb 2026)."
-    },
-    {
-        src: "/leetcode 300 days badge.jpg",
-        caption: "LeetCode 300 Days Coding Badge (Consistency and Problem Solving milestone)."
-    }
+    "/Collector Office.jpeg",
+    "/8.jpeg",
+    "/01.jpeg",
+    "/1.jpeg",
+    "/4.jpeg",
+    "/5.jpeg",
+    "/2.jpeg",
+    "/3.jpeg",
+    "/6.jpeg",
+    "/7.jpeg",
+    "/leetcode 300 days badge.jpg"
 ];
 
 export default function Gallery() {
@@ -180,24 +147,20 @@ export default function Gallery() {
 
                             <div className="p-6 overflow-y-auto hide-scroll">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                                    {galleryImages.map((item, idx) => (
+                                    {galleryImages.map((src, idx) => (
                                         <div 
                                             key={idx} 
                                             onClick={() => setLightboxIndex(idx)}
                                             className="relative aspect-[4/3] rounded-2xl overflow-hidden group border border-white/10 shadow-lg cursor-pointer"
                                         >
-                                            {/* Beautiful dark gradient with animated caption text on hover */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col justify-end p-4">
-                                                <p className="text-white text-xs md:text-sm font-semibold translate-y-2 group-hover:translate-y-0 transition-transform duration-300 leading-snug">
-                                                    {item.caption}
-                                                </p>
-                                            </div>
+                                            {/* Original purple gradient overlay on hover */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                                             
                                             <SkeletonImg
-                                                src={item.src}
-                                                alt={item.caption}
+                                                src={src}
+                                                alt={`Event Gallery ${idx + 1}`}
                                                 className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
-                                                    item.src.includes('leetcode') 
+                                                    src.includes('leetcode') 
                                                     ? 'object-contain bg-black/60 p-2' 
                                                     : 'object-cover'
                                                 }`}
@@ -242,12 +205,12 @@ export default function Gallery() {
                             </button>
 
                             {/* Main Slide view */}
-                            <div className="relative w-full aspect-[4/3] max-h-[70vh] bg-black/40 rounded-3xl overflow-hidden border border-white/10 flex items-center justify-center group/lightbox">
+                            <div className="relative w-full aspect-[4/3] max-h-[75vh] bg-black/40 rounded-3xl overflow-hidden border border-white/10 flex items-center justify-center group/lightbox">
                                 <img
-                                    src={galleryImages[lightboxIndex].src}
-                                    alt={galleryImages[lightboxIndex].caption}
+                                    src={galleryImages[lightboxIndex]}
+                                    alt={`Event Gallery ${lightboxIndex + 1}`}
                                     className={`max-w-full max-h-full object-contain select-none transition-all duration-300 ${
-                                        galleryImages[lightboxIndex].src.includes('leetcode') 
+                                        galleryImages[lightboxIndex].includes('leetcode') 
                                         ? 'p-6' 
                                         : ''
                                     }`}
@@ -272,17 +235,9 @@ export default function Gallery() {
                                 </button>
                             </div>
 
-                            {/* Caption text display */}
+                            {/* Counter display (no captions) */}
                             <div className="w-full text-center px-4 max-w-2xl">
-                                <motion.p 
-                                    key={lightboxIndex}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="text-white text-base md:text-lg font-medium leading-relaxed"
-                                >
-                                    {galleryImages[lightboxIndex].caption}
-                                </motion.p>
-                                <span className="inline-block mt-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-400">
+                                <span className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-400">
                                     {lightboxIndex + 1} of {galleryImages.length}
                                 </span>
                             </div>
