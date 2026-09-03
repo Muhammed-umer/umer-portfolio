@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LiquidGlassLayer from "@/components/LiquidGlass";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     "Md Umer Portfolio",
     "Md_umer77",
     "Software Developer", 
+    "Java Developer",
     "Full Stack Developer", 
     "Frontend Developer",
     "React Developer", 
@@ -75,7 +77,12 @@ export default function RootLayout({
       lang="en"
       className={`scroll-smooth ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        {/* Rendered after the page so the ambient light sits above the page
+            background but below the z-10 content. */}
+        <LiquidGlassLayer />
+      </body>
     </html>
   );
 }

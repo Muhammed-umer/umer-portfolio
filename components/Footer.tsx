@@ -14,7 +14,7 @@ export default function Footer() {
                         href="https://www.linkedin.com/in/muhammed-umer-s"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-bold text-purple-400 tracking-wide hover:text-purple-300 hover:underline transition-all"
+                        className="liquid-glass lg-chip lg-ghost inline-block px-3 py-1 font-bold text-purple-400 tracking-wide hover:text-purple-300 transition-all"
                     >
                         Muhammed Umer
                     </a>

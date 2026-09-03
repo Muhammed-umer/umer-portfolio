@@ -45,8 +45,8 @@ export default function Hero() {
                     >
                         <defs>
                             <linearGradient id="otw-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stopColor="#a855f7" />
-                                <stop offset="100%" stopColor="#22d3ee" />
+                                <stop offset="0%" stopColor="#7c3aed" />
+                                <stop offset="100%" stopColor="#d946ef" />
                             </linearGradient>
                         </defs>
                         <circle
@@ -57,20 +57,20 @@ export default function Hero() {
                             strokeDasharray="490"
                             strokeDashoffset="120"
                             transform="rotate(-210 100 100)"
-                            className="drop-shadow-[0_0_8px_rgba(168,85,247,0.7)]"
+                            className="drop-shadow-[0_0_8px_rgba(45,212,191,0.7)]"
                         />
                     </svg>
 
                     {/* "Open to Work" pill label at bottom */}
                     <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 z-20 whitespace-nowrap">
-                        <div className="flex items-center gap-1.5 bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-[10px] md:text-xs font-bold px-3 py-1 md:px-4 md:py-1.5 rounded-full shadow-lg shadow-purple-500/40 border border-purple-400/30">
-                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white animate-pulse shrink-0"></span>
+                        <div className="liquid-glass lg-chip flex items-center gap-1.5 bg-gradient-to-r from-purple-600 to-fuchsia-500 text-paper text-[10px] md:text-xs font-bold px-3 py-1 md:px-4 md:py-1.5 rounded-full">
+                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-paper animate-pulse shrink-0"></span>
                             Open to Work
                         </div>
                     </div>
 
                     {/* Profile photo */}
-                    <div className="relative w-full h-full rounded-full border-2 border-white/10 overflow-hidden shadow-2xl transition-all duration-500 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
+                    <div className="liquid-glass lg-chip relative w-full h-full rounded-full overflow-hidden shadow-2xl transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(45,212,191,0.4)]">
                         <SkeletonImage
                             src="/umer.png"
                             alt="Muhammed Umer S"
@@ -88,7 +88,7 @@ export default function Hero() {
                 <div className="space-y-4">
                     <h1 className="font-extrabold tracking-tight">
                         <span className="text-2xl md:text-4xl text-gray-200">Hi, I'm</span> <br />
-                        <span className="text-4xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mt-2 block">Muhammed Umer</span>
+                        <span className="text-4xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 mt-2 block">Muhammed Umer</span>
                     </h1>
 
                     <div className="flex flex-col items-center lg:items-start text-xl md:text-4xl font-medium text-gray-300">
@@ -111,20 +111,26 @@ export default function Hero() {
                 </div>
 
                 <div className="space-y-8">
-                    <div className="flex justify-center lg:justify-start space-x-6">
+                    <div className="flex justify-center lg:justify-start gap-3 md:gap-4">
                         {socialLinks.map((social, idx) => (
-                            <a key={idx} href={social.url} target="_blank" rel="noopener noreferrer">
-                                <social.icon className={`w-6 h-6 md:w-8 md:h-8 hover:scale-110 transition-all ${social.color}`} />
+                            <a
+                                key={idx}
+                                href={social.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="liquid-glass lg-btn lg-lift rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center group/social"
+                            >
+                                <social.icon className={`w-6 h-6 md:w-7 md:h-7 transition-transform duration-300 group-hover/social:scale-110 ${social.color}`} />
                             </a>
                         ))}
                     </div>
 
                     {/* Buttons */}
                     <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                        <a href="#Contact" className="flex items-center px-6 py-2 md:px-8 md:py-3 border border-white/10 rounded-xl bg-white/5 hover:bg-white/10 transition-all font-bold text-sm md:text-base">
+                        <a href="#Contact" className="liquid-glass lg-btn lg-lift lg-refract flex items-center px-6 py-2 md:px-8 md:py-3 rounded-xl font-bold text-sm md:text-base">
                             CONTACT ME <User className="ml-2 w-4 h-4" />
                         </a>
-                        <a href="/Md%20Umer%20Resume.pdf" download="Md_Umer_Resume.pdf" className="flex items-center px-6 py-2 md:px-8 md:py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl hover:scale-105 transition-transform font-bold shadow-lg shadow-purple-500/25 text-sm md:text-base">
+                        <a href="/Md%20Umer%20Resume.pdf" download="Md_Umer_Resume.pdf" className="liquid-glass lg-btn lg-lift lg-alive flex items-center px-6 py-2 md:px-8 md:py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl font-bold text-sm md:text-base text-paper">
                             GET RESUME <Download className="ml-2 w-4 h-4" />
                         </a>
                     </div>

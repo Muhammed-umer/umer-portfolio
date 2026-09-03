@@ -71,7 +71,7 @@ export default function About() {
                 </h4>
                 <ul className="space-y-6">
                   <li className="flex items-start gap-4">
-                    <div className="mt-2.5 w-2 h-2 rounded-full bg-purple-400 shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                    <div className="mt-2.5 w-2 h-2 rounded-full bg-purple-400 shrink-0 shadow-[0_0_8px_rgba(124,58,237,0.6)]"></div>
                     <p className="text-base">
                       <strong className="text-white block mb-1 text-lg">Proven Problem Solver</strong> I don't just write code; I optimize it. Having conquered <strong className="text-purple-400">600+ LeetCode problems</strong>, I tackle complex algorithmic challenges with speed and efficiency.
                     </p>
@@ -109,13 +109,14 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative group overflow-hidden rounded-[2rem] bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/10 p-6 md:p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 transition-all duration-300`}
+                whileHover={{ y: -8 }}
+                className="liquid-glass lg-card lg-tilt group relative overflow-hidden rounded-[2rem] p-6 md:p-8"
               >
                 {/* Hover Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
 
                 <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-                  <div className={`p-4 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-md group-hover:scale-110 group-hover:${item.border} transition-all duration-500`}>
+                  <div className="liquid-glass lg-chip p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
                     {item.icon}
                   </div>
                   <div>
@@ -133,7 +134,8 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative overflow-hidden rounded-[2rem] bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/10 p-6 md:p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
+            whileHover={{ y: -8 }}
+            className="liquid-glass lg-card lg-tilt lg-accent-cyan relative overflow-hidden rounded-[2rem] p-6 md:p-8"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 pointer-events-none"></div>
             <div className="relative z-10">
@@ -142,16 +144,16 @@ export default function About() {
                 Languages Known
               </h4>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm font-medium text-gray-300 hover:bg-white/10 hover:border-cyan-500/50 transition-colors flex-1 text-center sm:flex-none sm:text-left">
+                <span className="liquid-glass lg-chip lg-lift lg-accent-cyan px-4 py-2 rounded-xl text-sm font-medium text-gray-300 flex-1 text-center sm:flex-none sm:text-left">
                   <strong className="text-white">English:</strong> Read, Write, Speak
                 </span>
-                <span className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm font-medium text-gray-300 hover:bg-white/10 hover:border-cyan-500/50 transition-colors flex-1 text-center sm:flex-none sm:text-left">
+                <span className="liquid-glass lg-chip lg-lift lg-accent-cyan px-4 py-2 rounded-xl text-sm font-medium text-gray-300 flex-1 text-center sm:flex-none sm:text-left">
                   <strong className="text-white">Tamil:</strong> Read, Write, Speak
                 </span>
-                <span className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm font-medium text-gray-300 hover:bg-white/10 hover:border-cyan-500/50 transition-colors flex-1 text-center sm:flex-none sm:text-left">
+                <span className="liquid-glass lg-chip lg-lift lg-accent-cyan px-4 py-2 rounded-xl text-sm font-medium text-gray-300 flex-1 text-center sm:flex-none sm:text-left">
                   <strong className="text-white">Urdu:</strong> Read, Speak
                 </span>
-                <span className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm font-medium text-gray-300 hover:bg-white/10 hover:border-cyan-500/50 transition-colors flex-1 text-center sm:flex-none sm:text-left">
+                <span className="liquid-glass lg-chip lg-lift lg-accent-cyan px-4 py-2 rounded-xl text-sm font-medium text-gray-300 flex-1 text-center sm:flex-none sm:text-left">
                   <strong className="text-white">Hindi:</strong> Read, Speak
                 </span>
               </div>

@@ -58,7 +58,8 @@ function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className={`group/card relative rounded-3xl bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/10 p-6 md:p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 transition-all duration-500 overflow-hidden flex flex-col`}
+      whileHover={{ y: -8 }}
+      className="liquid-glass lg-card lg-tilt group/card relative rounded-3xl p-6 md:p-8 overflow-hidden flex flex-col"
     >
       {/* Hover Gradient Background */}
       <div className={`absolute inset-0 bg-gradient-to-br ${event.gradient} opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none`}></div>
@@ -80,7 +81,7 @@ function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
                 fill
                 className="object-cover"
               />
-              <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] md:text-xs font-medium text-white/80 pointer-events-none transition-opacity duration-300 flex items-center gap-2">
+              <div className="liquid-glass lg-chip absolute bottom-3 right-3 bg-[#17112f]/60 px-3 py-1.5 rounded-full text-[10px] md:text-xs font-medium text-paper/90 pointer-events-none flex items-center gap-2">
                 <Sparkles className="w-3 h-3 text-cyan-400" />
                 <span className="md:hidden">Tap to Flip</span>
                 <span className="hidden md:inline">Hover to Flip</span>
@@ -101,7 +102,7 @@ function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
 
         {/* Text Content */}
         <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shrink-0">
+          <div className="liquid-glass lg-chip p-3 rounded-2xl shrink-0">
             {event.icon}
           </div>
           <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight">{event.title}</h3>
@@ -163,7 +164,7 @@ export default function BeyondResume() {
         transition={{ duration: 0.5, delay: 0.5 }}
         className="text-center mt-16 md:mt-24"
       >
-        <div className="inline-block px-8 py-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+        <div className="liquid-glass lg-chip lg-alive inline-block px-8 py-4 rounded-full">
           <p className="text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-emerald-400">
             ...and many more initiatives & activities!
           </p>

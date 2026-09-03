@@ -108,15 +108,15 @@ const MarqueeRow = ({ items, reverse = false }: { items: typeof achievementsData
     const animationClass = reverse ? 'animate-marquee-reverse' : 'animate-marquee';
 
     return (
-        <div className="flex w-full overflow-hidden py-4 group-container">
+        <div className="flex w-full overflow-hidden pt-7 pb-4 group-container">
             <div className={`flex gap-6 w-max ${animationClass} hover:[animation-play-state:paused]`}>
                 {duplicatedItems.map((item, idx) => (
                     <div 
                         key={idx} 
-                        className="relative w-[280px] md:w-[340px] flex-shrink-0 bg-white/5 border border-white/10 p-5 md:p-6 rounded-3xl hover:bg-white/10 hover:border-purple-500/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 group cursor-default flex flex-col justify-between"
+                        className="liquid-glass lg-card lg-lite lg-lift relative w-[280px] md:w-[340px] flex-shrink-0 p-5 md:p-6 rounded-3xl group cursor-default flex flex-col justify-between"
                     >
                         {/* Top Medal Badge */}
-                        <div className="absolute -top-4 -right-2 z-10 flex items-center justify-center">
+                        <div className="absolute -top-4 -right-2 z-40 flex items-center justify-center">
                             {item.badge === "1st Prize" && (
                                 <div className="bg-gradient-to-br from-yellow-300 to-yellow-600 text-black font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-yellow-500/20 flex items-center gap-1 border border-yellow-200">
                                     <Medal className="w-3.5 h-3.5" />
@@ -124,19 +124,19 @@ const MarqueeRow = ({ items, reverse = false }: { items: typeof achievementsData
                                 </div>
                             )}
                             {item.badge === "2nd Prize" && (
-                                <div className="bg-gradient-to-br from-slate-200 to-slate-400 text-black font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-slate-500/20 flex items-center gap-1 border border-white">
+                                <div className="bg-gradient-to-br from-slate-200 to-slate-400 text-black font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-slate-500/20 flex items-center gap-1 border border-paper">
                                     <Award className="w-3.5 h-3.5" />
                                     2nd Prize
                                 </div>
                             )}
                             {item.badge === "Top 4" && (
-                                <div className="bg-gradient-to-br from-purple-400 to-purple-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-purple-500/20 flex items-center gap-1 border border-purple-300">
+                                <div className="bg-gradient-to-br from-purple-400 to-purple-600 text-paper font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-purple-500/20 flex items-center gap-1 border border-purple-300">
                                     <Trophy className="w-3.5 h-3.5" />
                                     Top 4
                                 </div>
                             )}
                             {item.badge === "Top Coder" && (
-                                <div className="bg-gradient-to-br from-orange-400 to-orange-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-orange-500/20 flex items-center gap-1 border border-orange-300">
+                                <div className="bg-gradient-to-br from-orange-400 to-orange-600 text-paper font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-orange-500/20 flex items-center gap-1 border border-orange-300">
                                     <Star className="w-3.5 h-3.5" />
                                     Top Coder
                                 </div>
@@ -156,7 +156,7 @@ const MarqueeRow = ({ items, reverse = false }: { items: typeof achievementsData
                             <p className="text-sm md:text-base text-gray-400 mb-6 line-clamp-3 leading-relaxed h-[65px] md:h-[75px]">{item.description}</p>
                         </div>
                         
-                        <div className="flex items-center text-xs md:text-sm font-medium px-4 py-2.5 rounded-xl bg-black/40 text-gray-300 border border-white/5 w-full truncate mt-auto">
+                        <div className="liquid-glass lg-chip lg-lite flex items-center text-xs md:text-sm font-medium px-4 py-2.5 rounded-xl bg-paper/30 text-gray-300 w-full truncate mt-auto">
                             <MapPin className="w-4 h-4 mr-2 text-purple-400 shrink-0" />
                             <span className="truncate">{item.college}</span>
                         </div>
@@ -231,12 +231,13 @@ export default function Achievements() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="relative rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/10 border border-white/10 group bg-[#110A1F] hover:shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 w-full flex items-center justify-center min-h-[220px]"
+                        whileHover={{ y: -6 }}
+                        className="liquid-glass lg-card lg-tilt lg-accent-amber relative rounded-3xl overflow-hidden group bg-[#ffffff]/40 w-full flex items-center justify-center min-h-[220px]"
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                         <a href="https://leetcode.com/u/Muhammed_Umer/" target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
                             <SkeletonImg 
-                                src="https://leetcard.jacoblin.cool/Muhammed_Umer?theme=dark&font=Inter&ext=heatmap" 
+                                src="https://leetcard.jacoblin.cool/Muhammed_Umer?theme=light&font=Inter&ext=heatmap" 
                                 alt="LeetCode Profile" 
                                 className="w-full h-full object-contain relative z-10 p-2 md:p-4"
                                 wrapperClassName="w-full h-full flex items-center justify-center"
@@ -267,14 +268,14 @@ export default function Achievements() {
                 >
                     <button 
                         onClick={() => window.dispatchEvent(new CustomEvent('open-gallery'))}
-                        className="inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 text-gray-200 px-8 py-4 rounded-xl transition-all duration-300 font-semibold group shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:border-purple-500/30 w-full sm:w-auto"
+                        className="liquid-glass lg-btn lg-lift inline-flex items-center justify-center gap-3 text-gray-200 px-8 py-4 rounded-xl font-semibold group w-full sm:w-auto"
                     >
                         <ImageIcon className="w-5 h-5 text-purple-400 group-hover:scale-110 transition-transform" />
                         Event Photos
                     </button>
                     <button 
                         onClick={() => setIsModalOpen(true)}
-                        className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-4 rounded-xl transition-all duration-300 font-semibold group shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] w-full sm:w-auto"
+                        className="liquid-glass lg-btn lg-lift lg-alive inline-flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-paper px-8 py-4 rounded-xl font-semibold group w-full sm:w-auto"
                     >
                         <List className="w-5 h-5 group-hover:scale-110 transition-transform" />
                         Show All Achievements
@@ -286,8 +287,8 @@ export default function Achievements() {
             <div className="container mx-auto px-6">
                 <div className="w-full overflow-hidden flex flex-col gap-4 md:gap-8 relative z-10 rounded-3xl">
                     {/* Left/Right Fade Masks for inside the container */}
-                    <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-24 bg-gradient-to-r from-[#0a051a] to-transparent z-20"></div>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-[#0a051a] to-transparent z-20"></div>
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-24 bg-gradient-to-r from-[#f3f0fa] to-transparent z-20"></div>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-[#f3f0fa] to-transparent z-20"></div>
 
                     <MarqueeRow items={topRow} />
                     <MarqueeRow items={bottomRow} reverse={true} />
@@ -301,36 +302,36 @@ export default function Achievements() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsModalOpen(false)}
-                            className="absolute inset-0 bg-[#05020a]/90 backdrop-blur-xl"
+                            className="absolute inset-0 bg-[#17112f]/55 backdrop-blur-xl"
                         />
 
                         <motion.div 
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="relative w-full max-w-6xl max-h-[85vh] bg-[#0f0826]/80 border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col mt-4"
+                            className="liquid-glass lg-card relative w-full max-w-6xl max-h-[85vh] bg-[#faf9ff]/85 rounded-3xl shadow-2xl overflow-hidden flex flex-col mt-4"
                         >
-                            <div className="flex items-center justify-between p-6 border-b border-white/10 bg-black/40 backdrop-blur-md sticky top-0 z-10">
+                            <div className="flex items-center justify-between p-6 border-b border-white/10 bg-paper/60 backdrop-blur-md sticky top-0 z-10">
                                 <div>
                                     <h3 className="text-2xl font-bold text-white">All Achievements</h3>
                                     <p className="text-gray-400 text-sm mt-1">A comprehensive list of all my milestones and awards.</p>
                                 </div>
                                 <button
                                     onClick={() => setIsModalOpen(false)}
-                                    className="p-3 rounded-full bg-white/5 hover:bg-white/10 hover:bg-red-500/20 text-gray-300 hover:text-red-400 transition-colors"
+                                    className="liquid-glass lg-btn lg-lift lg-accent-rose p-3 rounded-full hover:bg-red-500/20 text-gray-300 hover:text-red-400"
                                 >
                                     <X className="w-6 h-6" />
                                 </button>
                             </div>
 
-                            <div className="p-6 overflow-y-auto hide-scroll">
+                            <div className="px-6 pt-8 pb-6 overflow-y-auto hide-scroll">
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {achievementsData.map((item, idx) => (
                                         <div 
                                             key={idx} 
-                                            className="relative bg-white/5 border border-white/10 p-6 rounded-3xl hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 transition-all duration-300 group flex flex-col justify-between"
+                                            className="liquid-glass lg-card lg-lift lg-tilt relative p-6 rounded-3xl group flex flex-col justify-between"
                                         >
-                                            <div className="absolute -top-4 -right-2 z-10 flex items-center justify-center">
+                                            <div className="absolute -top-4 -right-2 z-40 flex items-center justify-center">
                                                 {item.badge === "1st Prize" && (
                                                     <div className="bg-gradient-to-br from-yellow-300 to-yellow-600 text-black font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-yellow-500/20 flex items-center gap-1 border border-yellow-200">
                                                         <Medal className="w-3.5 h-3.5" />
@@ -338,19 +339,19 @@ export default function Achievements() {
                                                     </div>
                                                 )}
                                                 {item.badge === "2nd Prize" && (
-                                                    <div className="bg-gradient-to-br from-slate-200 to-slate-400 text-black font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-slate-500/20 flex items-center gap-1 border border-white">
+                                                    <div className="bg-gradient-to-br from-slate-200 to-slate-400 text-black font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-slate-500/20 flex items-center gap-1 border border-paper">
                                                         <Award className="w-3.5 h-3.5" />
                                                         2nd Prize
                                                     </div>
                                                 )}
                                                 {item.badge === "Top 4" && (
-                                                    <div className="bg-gradient-to-br from-purple-400 to-purple-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-purple-500/20 flex items-center gap-1 border border-purple-300">
+                                                    <div className="bg-gradient-to-br from-purple-400 to-purple-600 text-paper font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-purple-500/20 flex items-center gap-1 border border-purple-300">
                                                         <Trophy className="w-3.5 h-3.5" />
                                                         Top 4
                                                     </div>
                                                 )}
                                                 {item.badge === "Top Coder" && (
-                                                    <div className="bg-gradient-to-br from-orange-400 to-orange-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-orange-500/20 flex items-center gap-1 border border-orange-300">
+                                                    <div className="bg-gradient-to-br from-orange-400 to-orange-600 text-paper font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg shadow-orange-500/20 flex items-center gap-1 border border-orange-300">
                                                         <Star className="w-3.5 h-3.5" />
                                                         Top Coder
                                                     </div>
@@ -370,7 +371,7 @@ export default function Achievements() {
                                                 <p className="text-sm text-gray-400 mb-6 leading-relaxed">{item.description}</p>
                                             </div>
                                             
-                                            <div className="flex items-center text-xs font-medium px-4 py-2.5 rounded-xl bg-black/40 text-gray-300 border border-white/5 w-full mt-auto">
+                                            <div className="liquid-glass lg-chip flex items-center text-xs font-medium px-4 py-2.5 rounded-xl bg-paper/30 text-gray-300 w-full mt-auto">
                                                 <MapPin className="w-4 h-4 mr-2 text-purple-400 shrink-0" />
                                                 <span className="truncate">{item.college}</span>
                                             </div>

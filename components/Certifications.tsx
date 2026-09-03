@@ -92,7 +92,7 @@ export default function Certifications() {
       <div className="max-w-4xl mx-auto relative flex items-center justify-center">
         
         {/* Carousel Container (Zero gap, perfectly wrapping the image) */}
-        <div className="w-full relative aspect-[1.41/1] sm:aspect-[1.5/1] rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden group shadow-[0_0_40px_rgba(168,85,247,0.15)] border border-white/5 bg-transparent">
+        <div className="liquid-glass lg-card w-full relative aspect-[1.41/1] sm:aspect-[1.5/1] rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden group shadow-[0_0_40px_rgba(124,58,237,0.15)] bg-transparent">
           
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
@@ -142,7 +142,7 @@ export default function Certifications() {
           {/* Left Arrow (Overlaid on image) */}
           <button 
             onClick={() => paginate(-1)}
-            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white hover:bg-purple-500 hover:text-white hover:scale-110 active:scale-95 transition-all duration-300 opacity-100"
+            className="liquid-glass lg-btn absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-paper/60 text-white hover:bg-purple-500 hover:text-paper hover:scale-110 active:scale-95 transition-all duration-300"
             aria-label="Previous certificate"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -151,7 +151,7 @@ export default function Certifications() {
           {/* Right Arrow (Overlaid on image) */}
           <button 
             onClick={() => paginate(1)}
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white hover:bg-purple-500 hover:text-white hover:scale-110 active:scale-95 transition-all duration-300 opacity-100"
+            className="liquid-glass lg-btn absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-paper/60 text-white hover:bg-purple-500 hover:text-paper hover:scale-110 active:scale-95 transition-all duration-300"
             aria-label="Next certificate"
           >
             <ChevronRight className="w-6 h-6" />
@@ -168,7 +168,7 @@ export default function Certifications() {
                 }}
                 className={`transition-all duration-300 rounded-full ${
                   idx === currentIndex 
-                    ? "w-8 h-2 bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.8)]" 
+                    ? "w-8 h-2 bg-purple-500 shadow-[0_0_10px_rgba(124,58,237,0.8)]" 
                     : "w-2 h-2 bg-white/40 hover:bg-white/80"
                 }`}
                 aria-label={`Go to certificate ${idx + 1}`}

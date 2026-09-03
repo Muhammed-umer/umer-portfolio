@@ -21,7 +21,7 @@ export function SkeletonImage({ className, skeletonClassName, ...props }: Skelet
     <div className="relative w-full h-full">
       {!loaded && (
         <div className={`absolute inset-0 bg-white/10 overflow-hidden ${skeletonClassName ?? ""}`}>
-          <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-paper/70 to-transparent" />
         </div>
       )}
       <Image
@@ -54,7 +54,7 @@ export function SkeletonImg({ className, skeletonClassName, wrapperClassName, ..
     <div className={`relative ${wrapperClassName ?? "w-full h-full"}`}>
       {!loaded && (
         <div className={`absolute inset-0 bg-white/10 overflow-hidden ${skeletonClassName ?? ""}`}>
-          <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-paper/70 to-transparent" />
         </div>
       )}
       <img

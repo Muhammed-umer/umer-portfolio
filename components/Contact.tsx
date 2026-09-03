@@ -115,18 +115,18 @@ export default function Contact() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="flex flex-col h-full"
                     >
-                        <div className="bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl backdrop-blur-sm">
+                        <div className="liquid-glass lg-card lg-tilt lg-refract rounded-3xl p-8 shadow-2xl">
                             <h3 className="text-2xl font-bold text-white mb-3">Let's Connect</h3>
                             <p className="text-gray-400 mb-8 leading-relaxed">
                                 Prefer reaching out directly? You can drop me an email or send a quick message on WhatsApp. I'm highly responsive on both!
                             </p>
 
                             <div className="flex flex-col gap-4 mb-10">
-                                <a href="mailto:mohdumer77md@gmail.com" className="w-full flex items-center justify-center sm:justify-start gap-4 bg-purple-500/10 text-purple-400 hover:bg-purple-500 hover:text-white border border-purple-500/20 py-4 px-6 rounded-xl transition-all duration-300 font-semibold group shadow-lg shadow-purple-500/5 hover:shadow-purple-500/25">
+                                <a href="mailto:mohdumer77md@gmail.com" className="liquid-glass lg-btn lg-lift w-full flex items-center justify-center sm:justify-start gap-4 bg-purple-500/10 text-purple-400 hover:bg-purple-500 hover:text-white py-4 px-6 rounded-xl font-semibold group">
                                     <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
                                     <span className="tracking-wide">mohdumer77md@gmail.com</span>
                                 </a>
-                                <a href="https://wa.me/919445886230" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center sm:justify-start gap-4 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-white border border-emerald-500/20 py-4 px-6 rounded-xl transition-all duration-300 font-semibold group shadow-lg shadow-emerald-500/5 hover:shadow-emerald-500/25">
+                                <a href="https://wa.me/919445886230" target="_blank" rel="noopener noreferrer" className="liquid-glass lg-btn lg-lift lg-accent-emerald w-full flex items-center justify-center sm:justify-start gap-4 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-white py-4 px-6 rounded-xl font-semibold group">
                                     <FaWhatsapp className="w-5 h-5 group-hover:scale-110 transition-transform" />
                                     <span className="tracking-wide">+91 9445886230</span>
                                 </a>
@@ -142,7 +142,7 @@ export default function Contact() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             aria-label={link.name}
-                                            className={`w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:-translate-y-1 shadow-lg transition-all duration-300 group ${link.hoverClass}`}
+                                            className={`liquid-glass lg-btn lg-lift w-12 h-12 flex items-center justify-center rounded-full group ${link.hoverClass}`}
                                         >
                                             <link.icon className={`w-5 h-5 ${link.color} group-hover:scale-110 transition-transform`} />
                                         </a>
@@ -159,7 +159,7 @@ export default function Contact() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.4 }}
                     >
-                        <form onSubmit={handleSubmit} className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-6">
+                        <form onSubmit={handleSubmit} className="liquid-glass lg-card lg-tilt rounded-2xl p-8 space-y-6">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">Your Name</label>
@@ -171,7 +171,7 @@ export default function Contact() {
                                         onChange={handleChange}
                                         required
                                         placeholder="Your Full Name"
-                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all"
+                                        className="lg-input w-full rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -184,7 +184,7 @@ export default function Contact() {
                                         onChange={handleChange}
                                         required
                                         placeholder="your.email@example.com"
-                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all"
+                                        className="lg-input w-full rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500"
                                     />
                                 </div>
                             </div>
@@ -199,7 +199,7 @@ export default function Contact() {
                                     onChange={handleChange}
                                     required
                                     placeholder="Job Opportunity / Project Idea"
-                                    className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all"
+                                    className="lg-input w-full rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500"
                                 />
                             </div>
 
@@ -213,7 +213,7 @@ export default function Contact() {
                                     required
                                     placeholder="Hi Umer, I would like to discuss..."
                                     rows={5}
-                                    className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all resize-none"
+                                    className="lg-input w-full rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500 resize-none"
                                 />
                             </div>
 
@@ -221,7 +221,7 @@ export default function Contact() {
                                 <motion.div
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-4 rounded-xl flex items-center gap-3"
+                                    className="liquid-glass lg-btn lg-accent-emerald bg-emerald-500/10 text-emerald-400 p-4 rounded-xl flex items-center gap-3"
                                 >
                                     <CheckCircle2 className="w-5 h-5 shrink-0" />
                                     <p className="text-sm font-medium">Message has successfully been sent to Muhammed Umer!</p>
@@ -231,7 +231,7 @@ export default function Contact() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 disabled:opacity-70 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 group"
+                                className="liquid-glass lg-btn lg-lift lg-alive w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 disabled:opacity-70 disabled:cursor-not-allowed text-paper font-medium py-3 px-6 rounded-xl flex items-center justify-center space-x-2 group"
                             >
                                 <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                                 {!isSubmitting && <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}

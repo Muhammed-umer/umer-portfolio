@@ -39,7 +39,7 @@ export default function HackerRankCard() {
 
     if (loading) {
         return (
-            <div className="w-full h-full min-h-[220px] flex items-center justify-center bg-[#110A1F] border border-white/10 rounded-3xl animate-pulse">
+            <div className="liquid-glass lg-card w-full h-full min-h-[220px] flex items-center justify-center bg-[#ffffff]/40 rounded-3xl animate-pulse">
                 <SiHackerrank className="w-8 h-8 text-green-500 opacity-50 animate-bounce" />
             </div>
         );
@@ -68,11 +68,11 @@ export default function HackerRankCard() {
             rel="noopener noreferrer"
             className="block w-full h-full"
         >
-            <div className="relative w-full h-full bg-[#110A1F] border border-white/10 rounded-3xl p-6 md:p-8 group hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col justify-between">
+            <div className="liquid-glass lg-card lg-lift lg-tilt lg-accent-emerald relative w-full h-full bg-[#ffffff]/40 rounded-3xl p-6 md:p-8 group overflow-hidden flex flex-col justify-between">
                 <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
                 <div className="relative z-10 flex items-center gap-4 mb-6">
-                    <div className="p-3 bg-white/5 border border-white/10 rounded-2xl group-hover:scale-110 group-hover:bg-green-500/20 transition-all duration-300">
+                    <div className="liquid-glass lg-chip p-3 rounded-2xl group-hover:scale-110 group-hover:bg-green-500/20 transition-all duration-300">
                         <SiHackerrank className="w-8 h-8 text-green-500" />
                     </div>
                     <div>
@@ -83,7 +83,7 @@ export default function HackerRankCard() {
 
                 <div className="relative z-10 grid grid-cols-2 gap-3 md:gap-4 mt-auto">
                     {badges.map((badge, idx) => (
-                        <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center text-center group-hover:bg-white/10 transition-colors duration-300">
+                        <div key={idx} className="liquid-glass lg-chip lg-accent-emerald rounded-xl p-3 flex flex-col items-center justify-center text-center">
                             <h4 className="text-sm font-bold text-gray-200 mb-1">{badge.badge_name}</h4>
                             
                             <p className={`text-[10px] uppercase tracking-wider font-extrabold mb-1.5 ${getRatingColor(badge.stars)}`}>

@@ -1,8 +1,116 @@
 @import "tailwindcss";
 
+/* =========================================================================
+   PALETTE — one world for page and glass
+   -------------------------------------------------------------------------
+   Lavender pearl. The page is an off-white ground with a faint violet cast,
+   soft lavender / violet / rose light drifting behind it, and every surface
+   is *clear* glass: near-transparent white, blurred, with a violet rim.
+   Nothing on the page may be neutral black or neutral grey — the ground is
+   #f3f0fa and everything neutral reads as outside it.
+
+   The components were written for a dark theme, so the tokens are inverted
+   here rather than editing every className:
+
+     white        → ink (#17112f). `text-white` headings, `bg-white/5` tints,
+                    `border-white/10` hairlines and `hover:text-white` all
+                    become ink on pearl. Use `paper` (below) when you need
+                    genuinely light text on a coloured fill.
+     gray-50…950  → the scale runs dark→light, so `text-gray-200` (titles)
+                    is deep ink and `text-gray-500` (muted) is a mid violet-grey.
+     purple/violet/indigo/fuchsia keep their hue but run one step deeper than
+                    Tailwind's, because the ground is light.
+     cyan/blue/emerald/green/yellow/amber/red 400–500 are likewise deepened.
+     black        is left alone (image overlays, badge text).
+
+   Ground   #f3f0fa   lavender pearl (page, fades, nav)
+   Ink      #17112f   headings, `white`
+   Light    violet-600 · fuchsia-500 · indigo-500 (aurora, rims, gradients)
+   Text     gray-400 (#514a78) is body copy — 7.3:1 on the ground, AAA
+   ========================================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f3f0fa;
+  --foreground: #17112f;
+}
+
+@theme {
+  --color-white: #17112f;
+  --color-ink: #17112f;
+  --color-paper: #faf9ff;
+
+  --color-gray-50: #100b24;
+  --color-gray-100: #1a1338;
+  --color-gray-200: #26204a;
+  --color-gray-300: #3a3361;
+  --color-gray-400: #514a78;
+  --color-gray-500: #6f689a;
+  --color-gray-600: #928bb8;
+  --color-gray-700: #b8b2d4;
+  --color-gray-800: #d7d3e8;
+  --color-gray-900: #e9e6f4;
+  --color-gray-950: #f4f2fa;
+
+  /* purple / violet — one step deeper for a light ground */
+  --color-purple-50: #f3e8ff;
+  --color-purple-100: #e9d5ff;
+  --color-purple-200: #d8b4fe;
+  --color-purple-300: #a855f7;
+  --color-purple-400: #7c3aed;
+  --color-purple-500: #6d28d9;
+  --color-purple-600: #5b21b6;
+  --color-purple-700: #4c1d95;
+  --color-purple-800: #3b1a7a;
+  --color-purple-900: #2e1065;
+  --color-purple-950: #1e0a45;
+  --color-violet-50: #f3e8ff;
+  --color-violet-100: #e9d5ff;
+  --color-violet-200: #d8b4fe;
+  --color-violet-300: #a855f7;
+  --color-violet-400: #7c3aed;
+  --color-violet-500: #6d28d9;
+  --color-violet-600: #5b21b6;
+  --color-violet-700: #4c1d95;
+  --color-violet-800: #3b1a7a;
+  --color-violet-900: #2e1065;
+  --color-violet-950: #1e0a45;
+
+  /* indigo (deepened) */
+  --color-indigo-300: #6366f1;
+  --color-indigo-400: #4f46e5;
+  --color-indigo-500: #4338ca;
+  --color-indigo-600: #3730a3;
+  --color-indigo-700: #312e81;
+
+  /* fuchsia — the touch of rose (deepened) */
+  --color-fuchsia-300: #d946ef;
+  --color-fuchsia-400: #c026d3;
+  --color-fuchsia-500: #a21caf;
+  --color-fuchsia-600: #86198f;
+
+  /* existing accents, one step deeper for a light ground */
+  --color-cyan-300: #06b6d4;
+  --color-cyan-400: #0891b2;
+  --color-cyan-500: #0e7490;
+  --color-cyan-600: #155e75;
+  --color-blue-300: #3b82f6;
+  --color-blue-400: #2563eb;
+  --color-blue-500: #1d4ed8;
+  --color-blue-600: #1e40af;
+  --color-teal-400: #0d9488;
+  --color-teal-500: #0f766e;
+  --color-emerald-400: #059669;
+  --color-emerald-500: #047857;
+  --color-green-400: #16a34a;
+  --color-green-500: #15803d;
+  --color-yellow-400: #d97706;
+  --color-yellow-500: #b45309;
+  --color-amber-400: #d97706;
+  --color-amber-500: #b45309;
+  --color-orange-400: #ea580c;
+  --color-orange-500: #c2410c;
+  --color-red-400: #dc2626;
+  --color-slate-300: #64748b;
 }
 
 @theme inline {
@@ -10,13 +118,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -45,4 +146,600 @@ body {
 }
 .hide-scroll::-webkit-scrollbar {
   display: none;
+}
+
+/* =========================================================================
+   LIQUID GLASS
+   -------------------------------------------------------------------------
+   Clear glass over the site's #f3f0fa lavender-pearl ground: a
+   near-transparent white body, blurred, with a violet / rose rim. The rim
+   carries the colour; the body stays almost invisible so the aurora behind
+   it does the work.
+
+   A surface is four stacked layers:
+
+     1. the element itself  — clear body (white, ~20% opaque) with a white
+                              top light, backdrop blur + saturate
+     2. ::after  (z -1)     — light *inside* the glass: a specular highlight
+                              that follows the pointer, plus a sheen that
+                              sweeps across once on hover
+     3. the content         — sits between the two light layers
+     4. ::before (z 30)     — the rim: a gradient ring (mask-composite) that
+                              flows continuously, winds up on hover and
+                              brightens where the pointer is. z 30 clears the
+                              `relative z-10` content wrappers several cards use.
+
+   Two tiers. `lg-card` / `lg-btn` / `lg-bar` get the full treatment. `lg-chip`
+   (tags, dates, pills, icon wells) gets a quiet static ring and no specular —
+   a page full of tiny flowing rims is noise, not glass.
+
+   `--lg-x` / `--lg-y` / `--lg-tilt` are written by <LiquidGlassLayer>
+   (components/LiquidGlass.tsx). Everything still works without JS — the
+   highlight parks at the top edge and nothing tilts.
+   ========================================================================= */
+
+/* Registered so they can be animated/transitioned rather than snapping. */
+@property --lg-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --lg-sweep {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: -40%;
+}
+@property --lg-active {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes lg-flow {
+  to { --lg-angle: 360deg; }
+}
+
+@keyframes lg-sweep {
+  from { --lg-sweep: -40%; }
+  to { --lg-sweep: 140%; }
+}
+
+/* Aurora drift — transform only, alternate direction, three phrasings so the
+   blobs never move in lockstep. */
+@keyframes lg-drift-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(9vw, 6vh, 0) scale(1.15); }
+}
+@keyframes lg-drift-b {
+  from { transform: translate3d(0, 0, 0) scale(1.1); }
+  to { transform: translate3d(-10vw, 8vh, 0) scale(0.95); }
+}
+@keyframes lg-drift-c {
+  from { transform: translate3d(0, 0, 0) scale(0.95); }
+  to { transform: translate3d(7vw, -9vh, 0) scale(1.12); }
+}
+
+@layer components {
+  .liquid-glass {
+    /* ---- palette (rgb triplets, used with `/ alpha`) ---- */
+    --lg-base: 255 255 255;    /* clear body */
+    --lg-base-opacity: 0.22;
+    --lg-sheen: 255 255 255;   /* highlights inside the glass */
+    --lg-glow-a: 124 58 237;   /* violet-600 */
+    --lg-glow-b: 217 70 239;   /* fuchsia-500 — the rose */
+    --lg-glint: 79 70 229;     /* rim's bright stop (indigo) — white would vanish on pearl */
+    --lg-dim: 196 181 253;     /* the rim's quiet stops stay lavender, not grey */
+
+    --lg-radius: 1.5rem;
+    --lg-blur: 16px;
+    --lg-saturate: 170%;
+    --lg-lift: -6px;
+    --lg-flow-duration: 13s;
+    /* Declared on every surface so a hovered card doesn't light up the chips
+       nested inside it — the pseudo-elements still inherit it from their own
+       originating element, which is the point of `inherits: true`. */
+    --lg-active: 0;
+
+    position: relative;
+    isolation: isolate;
+    border-radius: var(--lg-radius);
+    background-color: rgb(var(--lg-base) / var(--lg-base-opacity));
+    background-image: linear-gradient(
+      160deg,
+      rgb(var(--lg-sheen) / 0.5) 0%,
+      rgb(var(--lg-sheen) / 0.08) 38%,
+      rgb(var(--lg-glow-a) / 0.05) 100%
+    );
+    backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+    -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+    box-shadow:
+      inset 0 1px 0 0 rgb(var(--lg-sheen) / 0.85),
+      inset 0 -1px 1px 0 rgb(var(--lg-glow-a) / 0.1),
+      inset 0 0 28px 0 rgb(var(--lg-sheen) / 0.25),
+      0 12px 32px -14px rgb(60 30 110 / 0.28);
+    transition:
+      transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 460ms ease,
+      background-color 460ms ease,
+      --lg-active 380ms ease;
+  }
+
+  /* Light inside the glass: pointer specular + one-shot sheen sweep. */
+  .liquid-glass::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        18rem 18rem at var(--lg-x, 50%) var(--lg-y, 0%),
+        rgb(var(--lg-sheen) / 0.7),
+        rgb(var(--lg-glow-a) / 0.08) 38%,
+        transparent 72%
+      ),
+      linear-gradient(
+        105deg,
+        transparent calc(var(--lg-sweep) - 18%),
+        rgb(var(--lg-sheen) / 0.55) var(--lg-sweep),
+        transparent calc(var(--lg-sweep) + 18%)
+      );
+    opacity: var(--lg-active, 0);
+    transition: opacity 380ms ease;
+  }
+
+  /* The rim. `padding` sets ring thickness; the two masks cut out the middle. */
+  .liquid-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    border-radius: inherit;
+    padding: 1.5px;
+    pointer-events: none;
+    animation: lg-flow var(--lg-flow-duration) linear infinite;
+    background:
+      radial-gradient(
+        12rem 12rem at var(--lg-x, 50%) var(--lg-y, 0%),
+        rgb(var(--lg-glint) / calc(0.1 + 0.8 * var(--lg-active, 0))),
+        transparent 62%
+      ),
+      conic-gradient(
+        from var(--lg-angle) at 50% 50%,
+        rgb(var(--lg-dim) / 0.35) 0%,
+        rgb(var(--lg-glow-a) / 0.9) 10%,
+        rgb(var(--lg-glint) / 0.95) 20%,
+        rgb(var(--lg-glow-b) / 0.85) 32%,
+        rgb(var(--lg-dim) / 0.3) 46%,
+        rgb(var(--lg-glow-a) / 0.75) 60%,
+        rgb(var(--lg-glint) / 0.85) 72%,
+        rgb(var(--lg-glow-b) / 0.8) 86%,
+        rgb(var(--lg-dim) / 0.35) 100%
+      );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: calc(0.75 + 0.25 * var(--lg-active, 0));
+    transition: opacity 380ms ease;
+  }
+
+  /* Hover / keyboard focus — the CSS side. JS only supplies the coordinates,
+     so a surface still lights up with scripting disabled. */
+  .liquid-glass:hover,
+  .liquid-glass:focus-visible,
+  .liquid-glass:focus-within {
+    --lg-active: 1;
+    --lg-base-opacity: 0.34;
+    /* The rim is already spinning; hovering just winds it up. Changing the
+       duration re-times the running animation instead of restarting it. */
+    --lg-flow-duration: 4s;
+    background-image: linear-gradient(
+      160deg,
+      rgb(var(--lg-sheen) / 0.65) 0%,
+      rgb(var(--lg-sheen) / 0.12) 38%,
+      rgb(var(--lg-glow-a) / 0.08) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 0 rgb(var(--lg-sheen) / 1),
+      inset 0 -1px 2px 0 rgb(var(--lg-glow-b) / 0.12),
+      inset 0 0 40px 0 rgb(var(--lg-sheen) / 0.35),
+      0 0 24px -4px rgb(var(--lg-glow-a) / 0.3),
+      0 26px 60px -20px rgb(var(--lg-glow-a) / 0.4);
+  }
+
+  .liquid-glass:hover::after,
+  .liquid-glass:focus-visible::after,
+  .liquid-glass:focus-within::after {
+    animation: lg-sweep 900ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .liquid-glass:focus-visible {
+    outline: 2px solid rgb(var(--lg-glow-b) / 0.7);
+    outline-offset: 3px;
+  }
+
+  /* ---------------------------------------------------------------- presets */
+
+  .lg-card {
+    --lg-radius: 1.75rem;
+    --lg-blur: 18px;
+  }
+
+  .lg-btn {
+    --lg-radius: 0.85rem;
+    --lg-blur: 12px;
+    --lg-base-opacity: 0.32;
+    --lg-lift: -3px;
+  }
+
+  /* Quiet tier: a static ring, no specular, no flow. Tags, dates, pills and
+     icon wells sit inside surfaces that are already alive; they should read as
+     glass without competing for attention. */
+  .lg-chip {
+    --lg-radius: 999px;
+    --lg-blur: 8px;
+    --lg-base-opacity: 0.38;
+    --lg-lift: -2px;
+  }
+  .lg-chip::before {
+    animation: none;
+    background: linear-gradient(
+      135deg,
+      rgb(var(--lg-glint) / 0.5),
+      rgb(var(--lg-glow-a) / 0.45) 50%,
+      rgb(var(--lg-glow-b) / 0.4)
+    );
+    opacity: 0.6;
+  }
+  .lg-chip::after {
+    display: none;
+  }
+  .lg-chip:hover,
+  .lg-chip:focus-visible {
+    box-shadow:
+      inset 0 1px 0 0 rgb(var(--lg-sheen) / 0.9),
+      0 8px 20px -10px rgb(var(--lg-glow-a) / 0.35);
+  }
+  .lg-chip:hover::before,
+  .lg-chip:focus-visible::before {
+    opacity: 1;
+  }
+
+  /* Invisible until pointed at — the glass condenses under the cursor.
+     For nav links and other controls that would be noisy with a resting rim. */
+  .lg-ghost {
+    background-color: transparent;
+    background-image: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+  }
+  .lg-ghost::before {
+    opacity: 0;
+    animation-play-state: paused;
+  }
+  .lg-ghost:hover,
+  .lg-ghost:focus-visible {
+    --lg-active: 1;
+    background-color: rgb(var(--lg-base) / 0.45);
+    background-image: linear-gradient(
+      160deg,
+      rgb(var(--lg-sheen) / 0.5) 0%,
+      rgb(var(--lg-sheen) / 0.1) 45%,
+      rgb(var(--lg-glow-a) / 0.06) 100%
+    );
+    backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+    -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+    box-shadow:
+      inset 0 1px 0 0 rgb(var(--lg-sheen) / 0.9),
+      0 14px 34px -16px rgb(var(--lg-glow-a) / 0.4);
+  }
+  .lg-ghost:hover::before,
+  .lg-ghost:focus-visible::before {
+    opacity: 1;
+    animation-play-state: running;
+  }
+
+  /* Full-bleed bar (navbar): rim collapses to a single lit bottom edge. */
+  /* Blur is higher than a card's: content scrolling under the bar carries
+     bright 1.5px rims that 20px doesn't fully dissolve. */
+  .lg-bar {
+    --lg-radius: 0;
+    --lg-blur: 32px;
+    --lg-base-opacity: 0.55;
+  }
+  .lg-bar::before {
+    animation: none;
+    inset: auto 0 0 0;
+    height: 1px;
+    padding: 0;
+    -webkit-mask: none;
+    mask: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(var(--lg-glow-a) / 0.7),
+      rgb(var(--lg-glint) / 0.6),
+      rgb(var(--lg-glow-b) / 0.7),
+      transparent
+    );
+  }
+  .lg-bar:hover,
+  .lg-bar:focus-within {
+    background-image: none;
+    box-shadow:
+      inset 0 1px 0 0 rgb(var(--lg-sheen) / 0.6),
+      0 8px 30px -12px rgb(60 30 110 / 0.22);
+  }
+
+  /* Backdrop blur is expensive on elements that never stop moving (the
+     achievements marquee), so this variant keeps the rim and drops the blur;
+     the rim flows only while pointed at. */
+  .lg-lite {
+    --lg-base-opacity: 0.42;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .lg-lite::before {
+    animation-play-state: paused;
+  }
+  .lg-lite:hover::before {
+    animation-play-state: running;
+  }
+
+  /* Transform-based lift. Only for elements Framer Motion does NOT animate —
+     Framer writes an inline transform that would win over this rule. Motion
+     components use `whileHover={{ y: -6 }}` instead. */
+  .lg-lift:hover {
+    transform: translateY(var(--lg-lift)) scale(1.012);
+  }
+  .lg-lift:active {
+    transform: translateY(0) scale(0.985);
+    transition-duration: 120ms;
+  }
+
+  /* 3D: the surface tips away under the pointer, like pressing a pane of
+     glass. Uses the individual `rotate` property, which composes with Framer's
+     inline `transform` instead of fighting it; JS writes the axis and angle.
+     Perspective has to live on the parent, hence :has(). */
+  :has(> .lg-tilt) {
+    perspective: 1400px;
+  }
+  .lg-tilt {
+    rotate: var(--lg-ax, 1) var(--lg-ay, 0) 0 var(--lg-tilt, 0deg);
+    transition:
+      rotate 480ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 460ms ease,
+      background-color 460ms ease,
+      --lg-active 380ms ease;
+  }
+
+  /* Every rim flows at rest; primary CTAs flow noticeably faster. */
+  .lg-alive {
+    --lg-flow-duration: 6s;
+  }
+
+  /* Accent overrides for the rim gradient. */
+  .lg-accent-cyan {
+    --lg-glow-a: 34 211 238;
+    --lg-glow-b: 59 130 246;
+  }
+  .lg-accent-emerald {
+    --lg-glow-a: 16 185 129;
+    --lg-glow-b: 45 212 191;
+  }
+  .lg-accent-amber {
+    --lg-glow-a: 245 158 11;
+    --lg-glow-b: 251 191 36;
+  }
+  .lg-accent-rose {
+    --lg-glow-a: 244 63 94;
+    --lg-glow-b: 251 113 133;
+  }
+  .lg-accent-blue {
+    --lg-glow-a: 59 130 246;
+    --lg-glow-b: 96 165 250;
+  }
+
+  /* Form fields. <input> and <textarea> don't render pseudo-elements, so their
+     rim is painted as a second background layer clipped to the border box —
+     same gradient language, no extra markup. Used WITHOUT `.liquid-glass`. */
+  .lg-input {
+    --lg-radius: 0.75rem;
+    --lg-sheen: 255 255 255;
+    --lg-glow-a: 124 58 237;
+    --lg-glow-b: 217 70 239;
+    --lg-glint: 79 70 229;
+    border: 1px solid transparent;
+    border-radius: var(--lg-radius);
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.55), rgb(255 255 255 / 0.55)),
+      linear-gradient(
+        135deg,
+        rgb(var(--lg-glint) / 0.3),
+        rgb(var(--lg-glow-a) / 0.35) 45%,
+        rgb(var(--lg-glow-b) / 0.35)
+      );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: inset 0 1px 0 0 rgb(var(--lg-sheen) / 0.8);
+    transition:
+      box-shadow 320ms ease,
+      background-image 320ms ease;
+  }
+  .lg-input:hover {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.65), rgb(255 255 255 / 0.65)),
+      linear-gradient(
+        135deg,
+        rgb(var(--lg-glint) / 0.5),
+        rgb(var(--lg-glow-a) / 0.55) 45%,
+        rgb(var(--lg-glow-b) / 0.55)
+      );
+  }
+  .lg-input:focus {
+    outline: none;
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.8), rgb(255 255 255 / 0.8)),
+      linear-gradient(
+        135deg,
+        rgb(var(--lg-glint) / 0.8),
+        rgb(var(--lg-glow-a) / 0.9) 45%,
+        rgb(var(--lg-glow-b) / 0.9)
+      );
+    box-shadow:
+      inset 0 1px 0 0 rgb(var(--lg-sheen) / 0.9),
+      0 0 0 3px rgb(var(--lg-glow-a) / 0.18);
+  }
+
+  /* True refraction of the backdrop. Enabled by <LiquidGlassLayer> only where
+     `backdrop-filter: url()` actually renders, since a browser that parses but
+     ignores the reference would blank the backdrop instead. */
+  .lg-refraction-ready .liquid-glass.lg-refract {
+    backdrop-filter: url(#lg-refraction) blur(var(--lg-blur)) saturate(var(--lg-saturate));
+  }
+
+  /* Every rim animates a conic gradient, which repaints on the main thread.
+     <LiquidGlassLayer> marks surfaces that are scrolled out of view so only
+     the visible ones cost anything. Absent JS nothing is marked, and they all
+     simply keep flowing. */
+  .liquid-glass.lg-offscreen::before {
+    animation-play-state: paused;
+  }
+
+  /* ------------------------------------------------------------- aurora
+     The colour the glass refracts. Without it the surfaces sit on a flat
+     near-black and have nothing to blur, so they read as slightly lighter
+     rectangles. Five blobs in the site's accents, blurred once and then moved
+     with transform only, so the drift stays on the compositor. */
+  .lg-aurora {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .lg-aurora > span {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    mix-blend-mode: normal;
+    will-change: transform;
+    animation: lg-drift-a 26s ease-in-out infinite alternate;
+  }
+  .lg-aurora-violet {
+    width: 48vw;
+    height: 48vw;
+    top: -12vw;
+    left: -10vw;
+    background: rgb(167 139 250 / 0.5);
+  }
+  .lg-aurora-lilac {
+    width: 38vw;
+    height: 38vw;
+    top: 18vh;
+    right: -8vw;
+    background: rgb(216 180 254 / 0.5);
+    animation-name: lg-drift-b;
+    animation-duration: 32s;
+  }
+  .lg-aurora-periwinkle {
+    width: 44vw;
+    height: 44vw;
+    bottom: -14vw;
+    left: 8vw;
+    background: rgb(129 140 248 / 0.38);
+    animation-name: lg-drift-c;
+    animation-duration: 36s;
+  }
+  .lg-aurora-rose {
+    width: 30vw;
+    height: 30vw;
+    bottom: 4vh;
+    right: 12vw;
+    background: rgb(244 114 182 / 0.3);
+    animation-name: lg-drift-b;
+    animation-duration: 29s;
+    animation-delay: -12s;
+  }
+  .lg-aurora-deep {
+    width: 56vw;
+    height: 56vw;
+    top: 30vh;
+    left: 22vw;
+    background: rgb(139 92 246 / 0.2);
+    animation-name: lg-drift-c;
+    animation-duration: 40s;
+    animation-delay: -20s;
+  }
+  @media (max-width: 768px) {
+    .lg-aurora > span {
+      filter: blur(60px);
+    }
+    .lg-aurora-periwinkle,
+    .lg-aurora-deep {
+      display: none;
+    }
+    .lg-aurora-violet,
+    .lg-aurora-lilac,
+    .lg-aurora-rose {
+      width: 90vw;
+      height: 90vw;
+    }
+  }
+
+  /* Ambient light behind the page, following the pointer. */
+  .lg-cursor-glow {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    mix-blend-mode: multiply;
+    background: radial-gradient(
+      30rem 30rem at var(--gx, 50%) var(--gy, 30%),
+      rgb(124 58 237 / 0.09),
+      rgb(217 70 239 / 0.04) 42%,
+      transparent 70%
+    );
+    transition: opacity 700ms ease;
+  }
+  .lg-pointer-fine .lg-cursor-glow {
+    opacity: 1;
+  }
+
+  /* Without backdrop-filter the clear body is too thin to read text against. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .liquid-glass {
+      --lg-base-opacity: 0.75;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-glass,
+  .liquid-glass::before,
+  .liquid-glass::after {
+    animation: none !important;
+    transition-duration: 1ms !important;
+  }
+  .lg-lift:hover {
+    transform: none;
+  }
+  .lg-tilt {
+    rotate: none;
+  }
+  .lg-cursor-glow {
+    display: none;
+  }
+  .lg-aurora > span {
+    animation: none;
+  }
 }

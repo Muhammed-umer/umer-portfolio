@@ -81,20 +81,20 @@ export default function Education() {
                         >
                             {/* Timeline Node & Icon */}
                             <div className="w-10 h-10 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center relative z-10 pl-0 mt-4 md:mt-0">
-                                <div className={`w-10 h-10 md:w-16 md:h-16 rounded-full bg-[#0a0a0a] flex items-center justify-center p-1 md:p-1`}>
+                                <div className={`w-10 h-10 md:w-16 md:h-16 rounded-full bg-[#f3f0fa] flex items-center justify-center p-1 md:p-1`}>
                                     <div className={`w-full h-full rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg ${item.shadow}`}>
-                                        <GraduationCap className="w-4 h-4 md:w-7 md:h-7 text-white" />
+                                        <GraduationCap className="w-4 h-4 md:w-7 md:h-7 text-paper" />
                                     </div>
                                 </div>
                             </div>
 
                             {/* Content */}
-                            <div className="flex-1 bg-white/5 border border-white/10 p-5 md:p-8 rounded-2xl transition-all duration-300 shadow-xl hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 active:bg-white/10 active:-translate-y-1 active:border-purple-500/50">
+                            <div className="liquid-glass lg-card lg-lift lg-tilt flex-1 p-5 md:p-8 rounded-2xl">
                                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 md:gap-4 mb-4">
                                     <h3 className="text-xl md:text-2xl font-bold text-gray-100 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
                                         {item.degree}
                                     </h3>
-                                    <div className="flex items-center text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 rounded-full bg-white/10 text-gray-300 w-fit shrink-0">
+                                    <div className="liquid-glass lg-chip flex items-center text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 rounded-full text-gray-300 w-fit shrink-0">
                                         <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 mr-2" />
                                         {item.period}
                                     </div>
@@ -106,7 +106,7 @@ export default function Education() {
                                         <p className="text-base md:text-lg leading-relaxed">{item.institution}</p>
                                     </div>
 
-                                    <div className="flex items-center text-gray-300 bg-white/5 w-fit px-3 md:px-4 py-1.5 md:py-2 rounded-xl border border-white/5 text-sm md:text-base">
+                                    <div className="liquid-glass lg-chip lg-accent-amber flex items-center text-gray-300 w-fit px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-sm md:text-base">
                                         <Award className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-yellow-500" />
                                         <span className="font-semibold">{item.score}</span>
                                     </div>

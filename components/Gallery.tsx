@@ -97,7 +97,7 @@ export default function Gallery() {
             {/* Floating Action Button Wrapper */}
             <div className="fixed bottom-6 right-6 z-40 flex items-center group">
                 {/* Custom Tooltip — shows on hover OR on initial load hint */}
-                <div className={`mr-4 px-4 py-2 bg-[#0f0826]/90 backdrop-blur-md text-gray-200 text-sm font-semibold rounded-xl border border-purple-500/30 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-lg shadow-purple-500/10 ${
+                <div className={`liquid-glass lg-chip mr-4 px-4 py-2 bg-[#faf9ff]/85 text-gray-200 text-sm font-semibold rounded-xl transition-all duration-300 pointer-events-none whitespace-nowrap ${
                     showHint
                         ? 'opacity-100 translate-x-0'
                         : 'opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0'
@@ -107,7 +107,7 @@ export default function Gallery() {
                 
                 <button
                     onClick={() => setIsOpen(true)}
-                    className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white p-4 rounded-full shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+                    className="liquid-glass lg-btn lg-lift lg-alive bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-paper p-4 rounded-full flex items-center justify-center"
                     aria-label="Open Gallery"
                 >
                     <ImageIcon className="w-6 h-6 group-hover:scale-110 transition-transform" />
@@ -123,23 +123,23 @@ export default function Gallery() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="absolute inset-0 bg-[#05020a]/90 backdrop-blur-xl"
+                            className="absolute inset-0 bg-[#17112f]/55 backdrop-blur-xl"
                         />
 
                         <motion.div 
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="relative w-full max-w-6xl max-h-[85vh] bg-[#0f0826]/80 border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col mt-4"
+                            className="liquid-glass lg-card relative w-full max-w-6xl max-h-[85vh] bg-[#faf9ff]/85 rounded-3xl shadow-2xl overflow-hidden flex flex-col mt-4"
                         >
-                            <div className="flex items-center justify-between p-6 border-b border-white/10 bg-black/40 backdrop-blur-md sticky top-0 z-10">
+                            <div className="flex items-center justify-between p-6 border-b border-white/10 bg-paper/60 backdrop-blur-md sticky top-0 z-10">
                                 <div>
                                     <h3 className="text-2xl font-bold text-white">Event Gallery</h3>
                                     <p className="text-gray-400 text-sm mt-1">Hackathons, Contests & Milestones</p>
                                 </div>
                                 <button
                                     onClick={() => setIsOpen(false)}
-                                    className="p-3 rounded-full bg-white/5 hover:bg-white/10 hover:bg-red-500/20 text-gray-300 hover:text-red-400 transition-colors"
+                                    className="liquid-glass lg-btn lg-lift lg-accent-rose p-3 rounded-full hover:bg-red-500/20 text-gray-300 hover:text-red-400"
                                 >
                                     <X className="w-6 h-6" />
                                 </button>
@@ -151,7 +151,7 @@ export default function Gallery() {
                                         <div 
                                             key={idx} 
                                             onClick={() => setLightboxIndex(idx)}
-                                            className="relative aspect-[4/3] rounded-2xl overflow-hidden group border border-white/10 shadow-lg cursor-pointer"
+                                            className="liquid-glass lg-card lg-lift lg-tilt relative aspect-[4/3] rounded-2xl overflow-hidden group shadow-lg cursor-pointer"
                                         >
                                             {/* Original purple gradient overlay on hover */}
                                             <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
@@ -186,7 +186,7 @@ export default function Gallery() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setLightboxIndex(null)}
-                            className="absolute inset-0 bg-black/95 backdrop-blur-md"
+                            className="absolute inset-0 bg-[#17112f]/75 backdrop-blur-md"
                         />
 
                         <motion.div
@@ -198,14 +198,14 @@ export default function Gallery() {
                             {/* Close Button */}
                             <button
                                 onClick={() => setLightboxIndex(null)}
-                                className="absolute top-[-50px] right-0 p-3 rounded-full bg-white/5 hover:bg-white/10 hover:bg-red-500/20 text-gray-300 hover:text-red-400 transition-colors z-20"
+                                className="liquid-glass lg-btn lg-lift lg-accent-rose absolute top-[-50px] right-0 p-3 rounded-full hover:bg-red-500/20 text-gray-300 hover:text-red-400 z-20"
                                 aria-label="Close Lightbox"
                             >
                                 <X className="w-6 h-6" />
                             </button>
 
                             {/* Main Slide view */}
-                            <div className="relative w-full aspect-[4/3] max-h-[75vh] bg-black/40 rounded-3xl overflow-hidden border border-white/10 flex items-center justify-center group/lightbox">
+                            <div className="liquid-glass lg-card relative w-full aspect-[4/3] max-h-[75vh] bg-black/40 rounded-3xl overflow-hidden flex items-center justify-center group/lightbox">
                                 <img
                                     src={galleryImages[lightboxIndex]}
                                     alt={`Event Gallery ${lightboxIndex + 1}`}
@@ -219,7 +219,7 @@ export default function Gallery() {
                                 {/* Left navigation arrow */}
                                 <button
                                     onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-                                    className="absolute left-4 p-3 rounded-full bg-black/60 hover:bg-black/80 text-gray-300 hover:text-white border border-white/10 transition-all duration-300 md:opacity-0 md:group-hover/lightbox:opacity-100 z-20"
+                                    className="liquid-glass lg-btn absolute left-4 p-3 rounded-full bg-paper/60 text-gray-300 hover:text-white transition-all duration-300 md:opacity-0 md:group-hover/lightbox:opacity-100 z-20"
                                     aria-label="Previous Image"
                                 >
                                     <ChevronLeft className="w-6 h-6" />
@@ -228,7 +228,7 @@ export default function Gallery() {
                                 {/* Right navigation arrow */}
                                 <button
                                     onClick={(e) => { e.stopPropagation(); handleNext(); }}
-                                    className="absolute right-4 p-3 rounded-full bg-black/60 hover:bg-black/80 text-gray-300 hover:text-white border border-white/10 transition-all duration-300 md:opacity-0 md:group-hover/lightbox:opacity-100 z-20"
+                                    className="liquid-glass lg-btn absolute right-4 p-3 rounded-full bg-paper/60 text-gray-300 hover:text-white transition-all duration-300 md:opacity-0 md:group-hover/lightbox:opacity-100 z-20"
                                     aria-label="Next Image"
                                 >
                                     <ChevronRight className="w-6 h-6" />
@@ -237,7 +237,7 @@ export default function Gallery() {
 
                             {/* Counter display (no captions) */}
                             <div className="w-full text-center px-4 max-w-2xl">
-                                <span className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-400">
+                                <span className="liquid-glass lg-chip inline-block px-3 py-1 rounded-full text-xs font-semibold text-gray-400">
                                     {lightboxIndex + 1} of {galleryImages.length}
                                 </span>
                             </div>

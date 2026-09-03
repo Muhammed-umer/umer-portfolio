@@ -37,7 +37,7 @@ export default function Navbar() {
     }, [isOpen]);
 
     return (
-        <nav ref={navRef} className="fixed top-0 w-full z-50 bg-[#0a051a]/80 backdrop-blur-md border-b border-white/5">
+        <nav ref={navRef} className="liquid-glass lg-bar fixed top-0 w-full z-50 bg-[#f3f0fa]/70">
             <div className="flex items-center justify-between px-5 lg:px-10 py-5 md:py-6 gap-8">
                 
                 {/* Logo - Left aligned */}
@@ -50,10 +50,10 @@ export default function Navbar() {
                     <ul className="flex space-x-4 xl:space-x-6 text-[10px] xl:text-xs font-semibold tracking-widest uppercase text-gray-400">
                         {navLinks.map((link) => (
                             <li key={link.id} className="relative group cursor-pointer">
-                                <Link href={`/#${link.id}`} onClick={handleLinkClick} className="hover:text-white transition-all duration-300 py-2 flex items-center whitespace-nowrap">
+                                <Link href={`/#${link.id}`} onClick={handleLinkClick} className="liquid-glass lg-chip lg-ghost hover:text-white transition-all duration-300 px-3 py-2 flex items-center whitespace-nowrap">
                                     <span>{link.name}</span>
                                 </Link>
-                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
+                                <span className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-purple-400 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full"></span>
                             </li>
                         ))}
                     </ul>
@@ -63,7 +63,7 @@ export default function Navbar() {
                 <div className="lg:hidden flex items-center z-50">
                     <button 
                         onClick={() => setIsOpen(!isOpen)} 
-                        className="text-gray-400 hover:text-white focus:outline-none flex items-center justify-center p-2"
+                        className="liquid-glass lg-btn lg-lift text-gray-400 hover:text-white flex items-center justify-center p-2.5"
                         aria-label="Toggle menu"
                     >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -94,7 +94,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, height: "auto", y: 0 }}
                         exit={{ opacity: 0, height: 0, y: -10 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="md:hidden bg-[#0a051a]/95 backdrop-blur-md border-t border-white/5 overflow-hidden shadow-2xl"
+                        className="liquid-glass lg-bar md:hidden bg-[#f3f0fa]/85 overflow-hidden shadow-2xl"
                     >
                         <ul className="flex flex-col items-center py-6 space-y-6 text-sm font-semibold tracking-widest uppercase text-gray-400">
                             {navLinks.map((link) => (
@@ -102,11 +102,10 @@ export default function Navbar() {
                                     <Link 
                                         href={`/#${link.id}`}
                                         onClick={handleLinkClick}
-                                        className="hover:text-white active:scale-95 transition-all duration-300 pb-2 flex items-center justify-center whitespace-nowrap"
+                                        className="liquid-glass lg-chip lg-ghost hover:text-white active:scale-95 transition-all duration-300 mx-auto px-6 py-2 flex items-center justify-center whitespace-nowrap w-fit"
                                     >
                                         <span className="text-base">{link.name}</span>
                                     </Link>
-                                    <span className="absolute bottom-0 left-1/4 w-1/2 h-[2px] bg-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
                                 </li>
                             ))}
                         </ul>

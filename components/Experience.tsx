@@ -82,15 +82,15 @@ export default function Experience() {
                         >
                             {/* Timeline Node */}
                             <div className="w-10 h-10 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center relative z-10 pl-0 mt-4 md:mt-0">
-                                <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-[#0a0a0a] flex items-center justify-center p-1">
+                                <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-[#f3f0fa] flex items-center justify-center p-1">
                                     <div className={`w-full h-full rounded-full bg-gradient-to-br ${exp.gradient} flex items-center justify-center shadow-lg ${exp.shadow} group-hover:scale-110 transition-transform duration-300`}>
-                                        <Briefcase className="w-4 h-4 md:w-7 md:h-7 text-white" />
+                                        <Briefcase className="w-4 h-4 md:w-7 md:h-7 text-paper" />
                                     </div>
                                 </div>
                             </div>
 
                             {/* Content */}
-                            <div className="flex-1 bg-white/5 border border-white/10 p-5 md:p-8 rounded-2xl transition-all duration-300 shadow-xl hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 active:bg-white/10 active:-translate-y-1 active:border-purple-500/50">
+                            <div className="liquid-glass lg-card lg-lift lg-tilt flex-1 p-5 md:p-8 rounded-2xl">
                                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 md:gap-4 mb-4">
                                     <div>
                                         <h3 className="text-xl md:text-2xl font-bold text-gray-100 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
@@ -98,13 +98,13 @@ export default function Experience() {
                                         </h3>
                                         <p className="text-base md:text-lg text-purple-400 font-medium mt-1">{exp.company}</p>
                                     </div>
-                                    <div className="flex items-center text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 rounded-full bg-white/10 text-gray-300 w-fit shrink-0">
+                                    <div className="liquid-glass lg-chip flex items-center text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 rounded-full text-gray-300 w-fit shrink-0">
                                         <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 mr-2" />
                                         {exp.period}
                                     </div>
                                 </div>
 
-                                <div className="flex items-center text-gray-400 text-sm md:text-base mb-6 bg-white/5 w-fit px-3 py-1.5 rounded-lg border border-white/5">
+                                <div className="liquid-glass lg-chip lg-accent-rose flex items-center text-gray-400 text-sm md:text-base mb-6 w-fit px-3 py-1.5 rounded-lg">
                                     <MapPin className="w-4 h-4 mr-1.5 text-red-400" />
                                     {exp.location}
                                 </div>
@@ -119,7 +119,7 @@ export default function Experience() {
                                 </ul>
 
                                 {exp.image && (
-                                    <div className="mt-6 rounded-xl overflow-hidden border border-white/10 shadow-2xl relative group/image">
+                                    <div className="liquid-glass lg-chip mt-6 rounded-xl overflow-hidden shadow-2xl relative group/image">
                                         <div className="absolute inset-0 bg-purple-500/20 mix-blend-overlay opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
                                         <div className="relative w-full">
                                             {/* Skeleton shown while loading */}
@@ -136,9 +136,9 @@ export default function Experience() {
                                         </div>
 
                                         {(exp as any).imageCaption && (
-                                            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-20 flex items-end">
+                                            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-[#f3f0fa] via-[#f3f0fa]/70 to-transparent z-20 flex items-end">
                                                 <p className="text-white text-sm md:text-base font-medium tracking-wide flex items-center gap-2">
-                                                    <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></span>
+                                                    <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(124,58,237,0.8)]"></span>
                                                     {(exp as any).imageCaption}
                                                 </p>
                                             </div>

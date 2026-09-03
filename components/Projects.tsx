@@ -17,7 +17,7 @@ const projectsData = [
     github: "https://github.com/Muhammed-umer/Ai-debugger-agent.git",
     demo: "/projects/Ai Debugger demo.mp4",
     demoType: "video",
-    border: "border-blue-500/20"
+    accent: "lg-accent-cyan"
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const projectsData = [
     github: "https://github.com/Muhammed-umer/Job-Application-Tracker.git",
     demo: "https://job-application-tracker-2i8j.onrender.com",
     demoType: "live",
-    border: "border-emerald-500/20"
+    accent: "lg-accent-emerald"
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const projectsData = [
     github: "https://github.com/Dineshkumar-DK19/GCEE-Smart-college-hackathon.git",
     demo: "https://gcee-sch26.web.app/", 
     demoType: "live",
-    border: "border-indigo-500/20"
+    accent: "lg-accent-blue"
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ const projectsData = [
     github: "https://github.com/Muhammed-umer/linguastream-multilingual-chat-app.git",
     demo: "/projects/LinguaStream demo.mp4", 
     demoType: "video",
-    border: "border-pink-500/20"
+    accent: "lg-accent-rose"
   },
   {
     id: 5,
@@ -61,7 +61,7 @@ const projectsData = [
     github: "https://github.com/Muhammed-umer/TripSync.git",
     demo: "https://tripsync-college-trip.web.app",
     demoType: "live",
-    border: "border-orange-500/20"
+    accent: "lg-accent-amber"
   },
   {
     id: 6,
@@ -72,7 +72,7 @@ const projectsData = [
     github: "https://github.com/Muhammed-umer/2048-in-java-and-javafx.git",
     demo: "/projects/2048-javafx-1.0-SNAPSHOT.jar",
     demoType: "jar",
-    border: "border-yellow-500/20"
+    accent: "lg-accent-amber"
   }
 ];
 
@@ -160,7 +160,7 @@ export default function Projects() {
         {mounted && totalPages > 1 && (
           <button 
             onClick={prevPage}
-            className="absolute left-0 md:-left-4 lg:-left-8 xl:-left-12 z-50 p-3 md:p-4 rounded-full bg-black/60 border border-white/10 text-white hover:bg-white/10 hover:scale-110 active:scale-95 transition-all duration-300 backdrop-blur-md group"
+            className="liquid-glass lg-btn lg-lift absolute left-0 md:-left-4 lg:-left-8 xl:-left-12 z-50 p-3 md:p-4 rounded-full bg-paper/60 text-white group"
             aria-label="Previous page"
           >
             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 group-hover:-translate-x-1 transition-transform" />
@@ -184,7 +184,8 @@ export default function Projects() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    className={`group relative flex flex-col h-full rounded-[2.5rem] bg-[#0A0A0A]/80 backdrop-blur-3xl border-2 ${project.border} overflow-hidden hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500`}
+                    whileHover={{ y: -10 }}
+                    className={`liquid-glass lg-card lg-tilt ${project.accent} group relative flex flex-col h-full rounded-[2.5rem] overflow-hidden`}
                   >
                     {/* Subtle top light effect */}
                     <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -199,7 +200,7 @@ export default function Projects() {
                       
                       <div className="flex flex-wrap gap-2.5 mb-2 mt-auto">
                         {project.tech.map((t, i) => (
-                          <span key={i} className="flex items-center gap-2 px-4 py-2 text-xs font-semibold bg-white/[0.03] border border-white/5 rounded-2xl text-gray-300 hover:border-white/10 transition-all duration-300 cursor-default">
+                          <span key={i} className="liquid-glass lg-chip flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-2xl text-gray-300 cursor-default">
                             {getTechIcon(t)}
                             {t}
                           </span>
@@ -212,7 +213,7 @@ export default function Projects() {
                         <Link 
                           href={project.github} 
                           target="_blank"
-                          className="p-3 rounded-2xl bg-white/5 border border-white/5 text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex-shrink-0"
+                          className="liquid-glass lg-btn lg-lift p-3 rounded-2xl text-gray-400 hover:text-white flex-shrink-0"
                           title="View Source"
                         >
                           <FaGithub className="w-5 h-5" />
@@ -222,7 +223,7 @@ export default function Projects() {
                           <Link 
                             href={project.demo} 
                             target="_blank"
-                            className="flex-1 flex justify-center items-center gap-2 px-4 md:px-6 py-3 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 hover:bg-purple-500 hover:text-white transition-all duration-300 font-bold text-xs md:text-sm whitespace-nowrap"
+                            className="liquid-glass lg-btn lg-lift flex-1 flex justify-center items-center gap-2 px-4 md:px-6 py-3 rounded-2xl bg-purple-500/10 text-purple-400 hover:bg-purple-500 hover:text-white font-bold text-xs md:text-sm whitespace-nowrap"
                           >
                             <span>Live Preview</span>
                             <ExternalLink className="w-4 h-4" />
@@ -236,7 +237,7 @@ export default function Projects() {
                               e.stopPropagation();
                               setSelectedVideo(project.demo);
                             }}
-                            className="flex-1 flex justify-center items-center gap-2 px-4 md:px-6 py-3 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300 font-bold text-xs md:text-sm cursor-pointer whitespace-nowrap"
+                            className="liquid-glass lg-btn lg-lift lg-accent-cyan flex-1 flex justify-center items-center gap-2 px-4 md:px-6 py-3 rounded-2xl bg-blue-500/10 text-blue-400 hover:bg-blue-500 hover:text-white font-bold text-xs md:text-sm cursor-pointer whitespace-nowrap"
                           >
                             <Play className="w-4 h-4 fill-current" />
                             <span>Watch Demo</span>
@@ -247,7 +248,7 @@ export default function Projects() {
                           <Link 
                             href={project.demo} 
                             download
-                            className="flex-1 flex justify-center items-center gap-2 px-4 md:px-6 py-3 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 hover:bg-yellow-500 hover:text-white transition-all duration-300 font-bold text-xs md:text-sm whitespace-nowrap"
+                            className="liquid-glass lg-btn lg-lift lg-accent-amber flex-1 flex justify-center items-center gap-2 px-4 md:px-6 py-3 rounded-2xl bg-yellow-500/10 text-yellow-400 hover:bg-yellow-500 hover:text-white font-bold text-xs md:text-sm whitespace-nowrap"
                           >
                             <Download className="w-4 h-4" />
                             <span>Play game</span>
@@ -266,7 +267,7 @@ export default function Projects() {
         {mounted && totalPages > 1 && (
           <button 
             onClick={nextPage}
-            className="absolute right-0 md:-right-4 lg:-right-8 xl:-right-12 z-50 p-3 md:p-4 rounded-full bg-black/60 border border-white/10 text-white hover:bg-white/10 hover:scale-110 active:scale-95 transition-all duration-300 backdrop-blur-md group"
+            className="liquid-glass lg-btn lg-lift absolute right-0 md:-right-4 lg:-right-8 xl:-right-12 z-50 p-3 md:p-4 rounded-full bg-paper/60 text-white group"
             aria-label="Next page"
           >
             <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
@@ -287,7 +288,7 @@ export default function Projects() {
                 }`}
                 aria-label={`Go to page ${i + 1}`}
               >
-                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-white text-black text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-white text-paper text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                   {i + 1}
                 </span>
               </button>
@@ -298,7 +299,7 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             key={currentPage}
-            className="px-6 py-2 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-xl"
+            className="liquid-glass lg-chip px-6 py-2 rounded-2xl shadow-xl"
           >
             <p className="text-gray-400 text-xs font-bold tracking-[0.2em] uppercase">
               Project Batch <span className="text-white">{currentPage + 1}</span> <span className="text-gray-600 mx-2">/</span> <span className="text-gray-500">{totalPages}</span>
@@ -314,21 +315,21 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/90 backdrop-blur-xl"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#17112f]/60 backdrop-blur-xl"
             onClick={() => setSelectedVideo(null)}
           >
             <motion.div 
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="relative w-full max-w-5xl bg-[#0F0F0F] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(168,85,247,0.2)]"
+              className="liquid-glass lg-card relative w-full max-w-5xl bg-[#faf9ff]/90 rounded-[2rem] overflow-hidden shadow-[0_0_100px_rgba(124,58,237,0.2)]"
               onClick={e => e.stopPropagation()}
             >
               <div className="p-6 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
                 <h4 className="text-white font-bold tracking-wide">Project Demonstration</h4>
                 <button 
                   onClick={() => setSelectedVideo(null)}
-                  className="p-2 bg-white/5 hover:bg-red-500/20 hover:text-red-500 text-gray-400 rounded-xl transition-all duration-300"
+                  className="liquid-glass lg-btn lg-lift lg-accent-rose p-2 hover:bg-red-500/20 hover:text-red-500 text-gray-400 rounded-xl"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
