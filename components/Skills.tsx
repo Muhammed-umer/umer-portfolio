@@ -2,34 +2,49 @@
 
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaPython, FaJava, FaGithub, FaReact, FaBrain, FaLightbulb, FaGitAlt } from "react-icons/fa";
-import { SiC, SiMysql, SiPostgresql, SiMongodb, SiSpringboot, SiTailwindcss, SiHtmx, SiHuggingface, SiVercel, SiRender } from "react-icons/si";
+import { SiC, SiMysql, SiPostgresql, SiMongodb, SiSpringboot, SiTailwindcss, SiHtmx, SiHuggingface, SiVercel, SiRender, SiSupabase, SiResend, SiNextdotjs, SiClerk } from "react-icons/si";
+
+const LlamaIndexIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+    </svg>
+);
 
 const skills = [
-    { name: "HTML", icon: FaHtml5, color: "text-orange-500" },
-    { name: "CSS", icon: FaCss3Alt, color: "text-blue-500" },
-    { name: "JavaScript", icon: FaJsSquare, color: "text-yellow-400" },
+    // Row 1 — AI + Core
+    { name: "RAG", icon: FaBrain, color: "text-purple-400" },
+    { name: "LlamaIndex", icon: LlamaIndexIcon, color: "text-cyan-400" },
+    { name: "Hugging Face", icon: SiHuggingface, color: "text-yellow-400" },
     { name: "Python", icon: FaPython, color: "text-blue-400" },
     { name: "Java", icon: FaJava, color: "text-red-500" },
-    { name: "C", icon: SiC, color: "text-blue-600" },
-    { name: "MySQL", icon: SiMysql, color: "text-blue-500" },
+    { name: "Spring Boot", icon: SiSpringboot, color: "text-green-500" },
+    { name: "JavaScript", icon: FaJsSquare, color: "text-yellow-400" },
+    { name: "React", icon: FaReact, color: "text-cyan-400" },
+
+    // Row 2 — Full-stack
+    { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
     { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
+    { name: "Supabase", icon: SiSupabase, color: "text-emerald-400" },
     { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
+    { name: "MySQL", icon: SiMysql, color: "text-blue-500" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-teal-400" },
+    { name: "HTML", icon: FaHtml5, color: "text-orange-500" },
+    { name: "CSS", icon: FaCss3Alt, color: "text-blue-500" },
+
+    // Row 3 — Tools & Infrastructure
     { name: "Git", icon: FaGitAlt, color: "text-orange-600" },
     { name: "GitHub", icon: FaGithub, color: "text-white" },
-    { name: "React", icon: FaReact, color: "text-cyan-400" },
-    { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-teal-400" },
-    { name: "Spring Boot", icon: SiSpringboot, color: "text-green-500" },
-    { name: "HTMX", icon: SiHtmx, color: "text-blue-500" },
-    { name: "Hugging Face", icon: SiHuggingface, color: "text-yellow-400" },
+    { name: "Clerk", icon: SiClerk, color: "text-indigo-400" },
+    { name: "Resend", icon: SiResend, color: "text-white" },
     { name: "Vercel", icon: SiVercel, color: "text-white" },
     { name: "Render", icon: SiRender, color: "text-white" },
-    { name: "RAG", icon: FaBrain, color: "text-purple-400" },
-    { name: "Problem Solving", icon: FaLightbulb, color: "text-yellow-500" },
+    { name: "HTMX", icon: SiHtmx, color: "text-blue-500" },
+    { name: "Problem Solving", icon: FaLightbulb, color: "text-yellow-400" },
 ];
 
 export default function Skills() {
     return (
-        <section id="Skills" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-24 flex flex-col justify-center">
+        <section id="Skills" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-36 flex flex-col justify-center">
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -44,14 +59,14 @@ export default function Skills() {
             </motion.div>
 
             <div className="max-w-6xl mx-auto w-full">
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-3 md:gap-6">
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 gap-3 md:gap-6">
                     {skills.map((skill, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.05 }}
+                            transition={{ duration: 0.5, delay: index * 0.04 }}
                             whileHover={{ y: -8, scale: 1.03 }}
                             className="liquid-glass lg-card lg-tilt group rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center gap-3 cursor-pointer"
                         >

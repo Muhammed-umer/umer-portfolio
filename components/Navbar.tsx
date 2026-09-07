@@ -53,7 +53,6 @@ export default function Navbar() {
                                 <Link href={`/#${link.id}`} onClick={handleLinkClick} className="liquid-glass lg-chip lg-ghost hover:text-white transition-all duration-300 px-3 py-2 flex items-center whitespace-nowrap">
                                     <span>{link.name}</span>
                                 </Link>
-                                <span className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-purple-400 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full"></span>
                             </li>
                         ))}
                     </ul>

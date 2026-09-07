@@ -47,6 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Muhammed Umer S | Software Developer",
     description: "Portfolio of Muhammed Umer (Md Umer) - Software Developer specializing in modern web applications.",
+    creator: "@md_umer77",
   },
   robots: {
     index: true,

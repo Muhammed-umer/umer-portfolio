@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Mail, Send, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaHackerrank, FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 
 const socialLinks = [
@@ -18,6 +19,13 @@ const socialLinks = [
         name: "GitHub",
         icon: FaGithub,
         url: "https://github.com/Muhammed-umer",
+        color: "text-white",
+        hoverClass: "hover:bg-white/10 hover:border-white/30",
+    },
+    {
+        name: "X (Twitter)",
+        icon: FaXTwitter,
+        url: "https://x.com/md_umer77",
         color: "text-white",
         hoverClass: "hover:bg-white/10 hover:border-white/30",
     },
@@ -91,7 +99,7 @@ export default function Contact() {
     };
 
     return (
-        <section id="Contact" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-24 flex flex-col justify-center">
+        <section id="Contact" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-36 flex flex-col justify-center">
             <div className="max-w-6xl mx-auto w-full">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

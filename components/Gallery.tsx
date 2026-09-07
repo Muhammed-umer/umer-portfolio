@@ -117,7 +117,7 @@ export default function Gallery() {
             {/* Modal Overlay */}
             <AnimatePresence>
                 {isOpen && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-12">
+                    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 md:p-12 pt-20 md:pt-24">
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -130,7 +130,7 @@ export default function Gallery() {
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="liquid-glass lg-card relative w-full max-w-6xl max-h-[85vh] bg-[#faf9ff]/85 rounded-3xl shadow-2xl overflow-hidden flex flex-col mt-4"
+                            className="liquid-glass lg-card relative w-full max-w-6xl max-h-[80vh] bg-[#faf9ff]/85 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
                         >
                             <div className="flex items-center justify-between p-6 border-b border-white/10 bg-paper/60 backdrop-blur-md sticky top-0 z-10">
                                 <div>
@@ -179,7 +179,7 @@ export default function Gallery() {
             {/* Lightbox Modal */}
             <AnimatePresence>
                 {lightboxIndex !== null && (
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+                    <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 pt-20 md:pt-24">
                         {/* Semi-transparent Backdrop click to close */}
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -193,19 +193,19 @@ export default function Gallery() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.95 }}
-                            className="relative w-full max-w-4xl max-h-[90vh] flex flex-col items-center justify-center z-10 gap-4"
+                            className="relative w-full max-w-4xl max-h-[80vh] flex flex-col items-center justify-center z-10 gap-4"
                         >
-                            {/* Close Button */}
-                            <button
-                                onClick={() => setLightboxIndex(null)}
-                                className="liquid-glass lg-btn lg-lift lg-accent-rose absolute top-[-50px] right-0 p-3 rounded-full hover:bg-red-500/20 text-gray-300 hover:text-red-400 z-20"
-                                aria-label="Close Lightbox"
-                            >
-                                <X className="w-6 h-6" />
-                            </button>
-
                             {/* Main Slide view */}
-                            <div className="liquid-glass lg-card relative w-full aspect-[4/3] max-h-[75vh] bg-black/40 rounded-3xl overflow-hidden flex items-center justify-center group/lightbox">
+                            <div className="liquid-glass lg-card relative w-full aspect-[4/3] max-h-[70vh] bg-black/40 rounded-3xl overflow-hidden flex items-center justify-center group/lightbox">
+                                {/* Close Button inside the card */}
+                                <button
+                                    onClick={() => setLightboxIndex(null)}
+                                    className="liquid-glass lg-btn lg-lift lg-accent-rose absolute top-4 right-4 p-3 rounded-full hover:bg-red-500/20 text-gray-300 hover:text-red-400 z-30"
+                                    aria-label="Close Lightbox"
+                                >
+                                    <X className="w-6 h-6" />
+                                </button>
+
                                 <img
                                     src={galleryImages[lightboxIndex]}
                                     alt={`Event Gallery ${lightboxIndex + 1}`}

@@ -133,7 +133,7 @@ export default function Projects() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
-    <section id="Projects" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-24 relative overflow-hidden">
+    <section id="Projects" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-36 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px]"></div>

@@ -5,6 +5,7 @@ import { User, Download } from "lucide-react";
 import Image from "next/image";
 import { SkeletonImage } from "./SkeletonImage";
 import { FaGithub, FaLinkedin, FaHackerrank, FaEnvelope } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 
 const roles = ["Software Developer", "Web Developer", "AI Enthusiast"];
@@ -12,6 +13,7 @@ const roles = ["Software Developer", "Web Developer", "AI Enthusiast"];
 const socialLinks = [
     { icon: FaLinkedin, url: "https://www.linkedin.com/in/muhammed-umer-s", color: "text-blue-500" },
     { icon: FaGithub, url: "https://github.com/Muhammed-umer", color: "text-white" },
+    { icon: FaXTwitter, url: "https://x.com/md_umer77", color: "text-white" },
     { icon: SiLeetcode, url: "https://leetcode.com/u/Muhammed_Umer/", color: "text-yellow-500" },
     { icon: FaHackerrank, url: "https://www.hackerrank.com/profile/Md_umer77", color: "text-green-500" },
     { icon: FaEnvelope, url: "mailto:mohdumer77md@gmail.com", color: "text-red-500" },
@@ -35,39 +37,6 @@ export default function Hero() {
                 <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] group transition-transform duration-500 hover:scale-105">
                     {/* Ambient glow */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 to-cyan-500/30 rounded-full blur-3xl animate-pulse group-hover:from-purple-500/40 group-hover:to-cyan-400/40 transition-all duration-500" />
-
-                    {/* Open to Work ring — SVG arc mimicking LinkedIn */}
-                    <svg
-                        className="absolute inset-0 w-full h-full z-10 pointer-events-none"
-                        viewBox="0 0 200 200"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <defs>
-                            <linearGradient id="otw-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stopColor="#7c3aed" />
-                                <stop offset="100%" stopColor="#d946ef" />
-                            </linearGradient>
-                        </defs>
-                        <circle
-                            cx="100" cy="100" r="96"
-                            stroke="url(#otw-gradient)"
-                            strokeWidth="7"
-                            strokeLinecap="round"
-                            strokeDasharray="490"
-                            strokeDashoffset="120"
-                            transform="rotate(-210 100 100)"
-                            className="drop-shadow-[0_0_8px_rgba(45,212,191,0.7)]"
-                        />
-                    </svg>
-
-                    {/* "Open to Work" pill label at bottom */}
-                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 z-20 whitespace-nowrap">
-                        <div className="liquid-glass lg-chip flex items-center gap-1.5 bg-gradient-to-r from-purple-600 to-fuchsia-500 text-paper text-[10px] md:text-xs font-bold px-3 py-1 md:px-4 md:py-1.5 rounded-full">
-                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-paper animate-pulse shrink-0"></span>
-                            Open to Work
-                        </div>
-                    </div>
 
                     {/* Profile photo */}
                     <div className="liquid-glass lg-chip relative w-full h-full rounded-full overflow-hidden shadow-2xl transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(45,212,191,0.4)]">

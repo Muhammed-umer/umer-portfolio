@@ -188,7 +188,7 @@ export default function Achievements() {
     }, [isModalOpen]);
 
     return (
-        <section id="Achievements" className="relative py-12 md:py-16 scroll-mt-24 overflow-hidden">
+        <section id="Achievements" className="relative py-12 md:py-16 scroll-mt-36 overflow-hidden">
             <style dangerouslySetInnerHTML={{__html: `
                 @keyframes marquee {
                     0% { transform: translateX(0%); }

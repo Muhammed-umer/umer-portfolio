@@ -46,7 +46,7 @@ export default function Experience() {
     });
 
     return (
-        <section id="Experience" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-24 flex flex-col justify-center">
+        <section id="Experience" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-36 flex flex-col justify-center">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

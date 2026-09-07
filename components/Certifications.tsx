@@ -69,7 +69,7 @@ export default function Certifications() {
   const currentCert = certificatesData[currentIndex];
 
   return (
-    <section id="Certifications" className="container mx-auto px-4 md:px-6 py-12 md:py-16 scroll-mt-24 relative overflow-hidden">
+    <section id="Certifications" className="container mx-auto px-4 md:px-6 py-12 md:py-16 scroll-mt-36 relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-[30%] right-[10%] w-72 h-72 bg-purple-600/10 rounded-full blur-[100px]"></div>

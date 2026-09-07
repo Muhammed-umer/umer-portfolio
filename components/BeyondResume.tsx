@@ -119,7 +119,7 @@ function EventCard({ event, idx }: { event: typeof events[0], idx: number }) {
 
 export default function BeyondResume() {
   return (
-    <section id="BeyondResume" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-24 relative overflow-hidden">
+    <section id="BeyondResume" className="container mx-auto px-6 py-12 md:py-16 scroll-mt-36 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-[30%] left-[10%] w-96 h-96 bg-purple-500/10 rounded-full blur-[120px]"></div>
