@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LiquidGlassLayer from "@/components/LiquidGlass";
+import BootLoader from "@/components/BootLoader";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://muhammed-umer-s.vercel.app"),
+  metadataBase: new URL("https://muhammed-umer.me"),
   title: "Muhammed Umer S | Portfolio - Software Developer",
   description: "Professional portfolio of Muhammed Umer S (Md Umer), a passionate Software Developer based in Erode, India. Explore my full-stack projects, skills, and achievements.",
   keywords: [
@@ -77,9 +80,16 @@ export default function RootLayout({
     <html
       lang="en"
       className={`scroll-smooth ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      // BootLoader's inline script stamps `data-booted` on <html> before
+      // hydration on repeat visits; only this element's attributes are exempt.
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+        {/* First in the stream so the boot screen is the first thing painted. */}
+        <BootLoader />
         {children}
+        <Analytics />
+        <SpeedInsights />
         {/* Rendered after the page so the ambient light sits above the page
             background but below the z-10 content. */}
         <LiquidGlassLayer />
