@@ -13,53 +13,75 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://muhammed-umer-s.vercel.app"),
-  title: "Muhammed Umer S | Portfolio - Software Developer",
-  description: "Professional portfolio of Muhammed Umer S (Md Umer), a passionate Software Developer based in Erode, India. Explore my full-stack projects, skills, and achievements.",
+  metadataBase: new URL("https://www.muhammed-umer.me"),
+
+  title: "Muhammed Umer S | Software Developer | AI & LLM Enthusiast",
+
+  description:
+    "Muhammed Umer S (Md Umer) is a Software Developer and AI & LLM enthusiast from India, exploring AI engineering, large language models, backend development, and modern software systems. Explore his projects, technical skills, and achievements.",
+
   keywords: [
-    "Muhammed Umer S", 
-    "Muhammed Umer", 
-    "Md Umer", 
-    "Muhammed Umer Portfolio", 
-    "Md Umer Portfolio",
-    "Md_umer77",
-    "Software Developer", 
+    "Muhammed Umer S",
+    "Muhammed Umer",
+    "Md Umer",
+    "Muhammed Umer Portfolio",
+    "Software Developer",
+    "AI Developer",
+    "AI Enthusiast",
+    "LLM Enthusiast",
+    "Large Language Models",
+    "Generative AI",
+    "AI Engineering",
+    "LLM Inference",
+    "Backend Developer",
     "Java Developer",
-    "Full Stack Developer", 
-    "Frontend Developer",
-    "React Developer", 
+    "Full Stack Developer",
+    "React Developer",
     "Next.js Developer",
-    "Government College Of Engineering Erode",
-    "GCE Erode",
-    "Software Engineer Portfolio"
+    "Spring Boot Developer",
+    "Government College of Engineering Erode",
+    "GCE Erode"
   ],
+
   authors: [{ name: "Muhammed Umer S" }],
   creator: "Muhammed Umer S",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
     type: "website",
-    locale: "en_US",
-    title: "Muhammed Umer S | Software Developer Portfolio",
-    description: "Professional portfolio of Muhammed Umer S (Md Umer). Discover my projects, coding achievements, and software development journey.",
+    locale: "en_IN",
+    url: "/",
+    title: "Muhammed Umer S | Software Developer | AI & LLM Enthusiast",
+    description:
+      "Explore Muhammed Umer S's software development projects, AI and LLM explorations, technical skills, and achievements.",
     siteName: "Muhammed Umer S Portfolio",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Muhammed Umer S | Software Developer",
-    description: "Portfolio of Muhammed Umer (Md Umer) - Software Developer specializing in modern web applications.",
+    title: "Muhammed Umer S | Software Developer | AI & LLM Enthusiast",
+    description:
+      "Software Developer exploring AI, LLMs, backend engineering, and modern software systems.",
     creator: "@md_umer77",
   },
+
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
+
   verification: {
     google: "PlsvyFpTLL3bs61o16T-j_DzwyckR9nvPTMUhVGn_rM",
     other: {
@@ -67,6 +89,7 @@ export const metadata: Metadata = {
     },
   },
 };
+
 
 export default function RootLayout({
   children,
