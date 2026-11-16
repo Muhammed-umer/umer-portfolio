@@ -11,6 +11,8 @@
   "dependencies": {
     "@react-three/drei": "^10.7.8",
     "@react-three/fiber": "^9.7.0",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.14.0",
     "next": "16.2.6",
@@ -20,6 +22,7 @@
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.16.7",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
